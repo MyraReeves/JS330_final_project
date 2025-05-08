@@ -27,34 +27,30 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 👥 **User Accounts**
 
-* CREATE/POST _a new user_
+* CREATE/POST _a new user_ ("Sign Up")
+* CREATE/POST _to set a user's role_
+* POST _logging in an existing user_
 * READ/GET _a list of all users_
-* READ/GET _information about a single user_
-* UPDATE/PUT _an existing account_
+* READ/GET _the information about a single user_
+* UPDATE/PUT _an existing account_ ("Change Password", etc.)
 * DELETE _a user_
 
-👤 **Profile Actions**
+🏞️ **Parks Visited List**
 
-* Sign up
-* Log in
-* Change password
-* Set role
-
-🏞️ **Parks Visited**
-
-* CREATE/POST
-* READ/GET
-* READ/GET
-* UPDATE/PUT
-* DELETE
+* CREATE/POST _a new park name into the user's visited list_
+* READ/GET _a list of all possible parks_
+* READ/GET _a list of all parks that a user has listed as having visited_
+* READ/GET _a list based on park type_
+* DELETE _a park from the user's list_ (in case of mistakes)
 
 💬 **Visitor Comments**
 
-* CREATE/POST
-* READ/GET
-* READ/GET
-* UPDATE/PUT
-* DELETE
+* CREATE/POST _a comment_
+* READ/GET _all comments for a state's national parks_
+* READ/GET _comments for a specific park_
+* READ/GET _comments by one specific user name_
+* UPDATE/PUT _edits_ (Admin only)
+* DELETE _a comment_ (Admin only)
 
 ## 🔶 Data Models 🔶
 
