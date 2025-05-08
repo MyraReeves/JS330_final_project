@@ -4,7 +4,7 @@ My final project for UW's "Back-End Application Development With JavaScript" cou
 
 <!-- Grading Criteria:  Demonstrate how project requirements will be met and value will be generated. Project should be split up into tasks laid out on a timeline. -->
 
-## Project Proposal
+## 🔶 Project Proposal Description 🔶
 
 My app will function as a national park information site for hobbyists in Washington and Oregon, with the intention of encouraging visitation to the real world locations.  For practical, deadline purposes I will be limiting the initial scope to only those two states, but the app could be expanded in the future to include NPS sites in other states as well.
 
@@ -16,14 +16,14 @@ Once logged-in, a user will be able to create/read/update/delete their own uniqu
 
 <br>
 
-## Fulfilling Project Requirements:
+## 🔶 Fulfilling Project Requirements 🔶
 <!-- Clear and direct call-outs of how you will meet the various project requirements: -->
 The app will be a React Express app using MongoDB to store database contents.  CRUD routes will exist for keeping park lists and visitor comments.  All user accounts will be authenticated to allow for relevant post, update, and delete operations. User roles will determine authorization rights.  Only accounts with an _Admin_ role will be able to create, update, or delete the single master list of parks, and only an Admin will be able to delete or update information belonging to users who have the _Visitor_ role (such as their visitation comments). Indexes and text searches will allow for fast lookup of information for everyone.  Jest unit tests will be utilized to ensure all routes function properly.
 
 <br>
 
 <!-- A description of what the technical components of your project will be, including: the routes, the data models, any external data sources you'll use, etc.: -->
-## Routes
+## 🔶 Routes 🔶
 
 👥 **Accounts**
 
@@ -56,12 +56,21 @@ The app will be a React Express app using MongoDB to store database contents.  C
 * UPDATE/PUT
 * DELETE
 
-## Data Models
+## 🔶 Data Models 🔶
 
 * User Id
 * Password
 
 <br>
 
-## Project Timeline:
+## 🔶 Project Timeline 🔶
 <!-- A timeline for what project components you plan to complete, week by week, for the remainder of the class: -->
+**Week 1** <sup>(week 6 of class)</sup> = Submit project proposal.
+
+**Week 2** <sup>(week 7 of class)</sup> = Set up the skeleton of the app.  Create needed directories/files and install dependencies.  Begin creating routes, models, and DAO files.
+
+**Week 3** <sup>(week 8 of class)</sup> = Set up front end content (including CSS) and continue coding Express route files. Submit prototype/proof of concept with an updated README.
+
+**Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve, and finish any remaining coding.
+
+**Week 5** <sup>(week 10 of class)</sup> = Finish testing, complete any final tweaks, and push the final deployment. Create slides for the in-class presentation.
