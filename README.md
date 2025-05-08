@@ -25,12 +25,12 @@ The app will be a React Express app using MongoDB to store database contents.  C
 <!-- A description of what the technical components of your project will be, including: the routes, the data models, any external data sources you'll use, etc.: -->
 ## 🔶 Routes 🔶
 
-👥 **Accounts**
+👥 **User Accounts**
 
 * CREATE/POST _a new user_
 * READ/GET _a list of all users_
 * READ/GET _information about a single user_
-* UPDATE/PUT _an existing user_
+* UPDATE/PUT _an existing account_
 * DELETE _a user_
 
 👤 **Profile Actions**
@@ -58,8 +58,36 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 ## 🔶 Data Models 🔶
 
-* User Id
+👤User Account Schema
+
+* User Name
+* Email
 * Password
+* Role
+
+🏞️ Park Schema
+
+* Name
+* Park Type (NHS, NVM, NP, etc.)
+* Brief Description
+* Official Website
+* Visitor Center Hours
+* Mailing Address
+* Phone Number
+* Google Maps URL Link
+
+💬 User Comments Schema
+
+* User Name
+* Park Name
+* State
+* When Visit Occurred
+* Weather During Visit
+* Trip Summary
+* Additional (optional) Description Space
+* Favorite Moment of the Visit
+* Memorable Sights
+* Helpful Tips For Others
 
 <br>
 
