@@ -39,9 +39,9 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 * CREATE/POST _a new park name into the user's visited list_
 * READ/GET _a list of all possible parks_
-* READ/GET _a list of all parks that a user has listed so far as having visited_
-* READ/GET _the user's list based on park type_
-* DELETE _a park from the user's list_ (in case of mistakes)
+* READ/GET _a list of all parks that a user has listed as "visited"_
+* READ/GET _a user's "visited" list based on park type_
+* DELETE _a park from a user's list_ (in case of mistakes)
 
 💬 **Visitor Comments**
 
