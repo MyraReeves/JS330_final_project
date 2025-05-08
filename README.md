@@ -6,13 +6,13 @@ My final project for UW's "Back-End Application Development With JavaScript" cou
 
 ## 🔶 Project Proposal Description 🔶
 
-My app will function as a national park information site for hobbyists in Washington and Oregon, with the intention of encouraging visitation to the real world locations.  For practical, deadline purposes I will be limiting the initial scope to only those two states, but the app could be expanded in the future to include NPS sites in other states as well.
+My app will function as a national park information site for hobbyists in Washington and Oregon, with the intention of encouraging visitation to the real world locations.  For project deadline purposes I will be limiting the initial scope to only those two states, but the app could be expanded in the future to include NPS sites in other states as well.
 
 Visitors to the website will be able to quickly find a list of all the national park system locations around Washington and Oregon, in order to facilitate visiting all of them. The database will include park name, park type, location, basic contact information, visitor center hours, and a brief park description including links to the official U.S. government-run informational websites.  Ideally, I would like to also include a map of the locations and (if possible) a way to see what the current weather is at any of the locations.
 
 Only users with an _Admin_ role will be able to create, update, or delete that master list of parks.  However, the general public will be able to create accounts in order to recieve more personalized benefits from the app.
 
-Once logged-in, a user will be able to create/read/update/delete their own unique list of NPS sites they have personally visited.  Logged-in users will also be able to leave public comments about the national parks they have visited.   Comment fields will include experiential information such as memorable sights/descriptions of the user's visit, user-generated tips for other park visitors, etc., in addition to more measurable/quantifiable data such as which specific park had been visited, what the weather had been like, etc.  Although comment creation functionality will be limited to only logged-in users, all visitors to the website (whether logged in or not) will be able to read the visitation comments left by others.
+Once logged-in, a user will be able to create/read/update/delete their own unique list of NPS sites they have personally visited.  This information will only be viewable when logged in.  Logged-in users will also be able to leave public comments about the national parks they have visited.   Comment fields will include experiential information such as memorable sights/descriptions of the user's visit, user-generated tips for other park visitors, etc., in addition to more measurable/quantifiable data such as which specific park had been visited, what the weather had been like, etc.  Although comment creation functionality will be limited to only logged-in users, all visitors to the website (whether logged in or not) will be able to read the visitation comments left by others.
 
 <br>
 
@@ -22,7 +22,7 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 <br>
 
-<!-- A description of what the technical components of your project will be, including: the routes, the data models, any external data sources you'll use, etc.: -->
+<!-- A description of what the technical components of your project will be, including: the routes, the data models, etc.: -->
 ## 🔶 Routes 🔶
 
 👥 **User Accounts**
@@ -39,17 +39,17 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 * CREATE/POST _a new park name into the user's visited list_
 * READ/GET _a list of all possible parks_
-* READ/GET _a list of all parks that a user has listed as having visited_
-* READ/GET _a list based on park type_
+* READ/GET _a list of all parks that a user has listed so far as having visited_
+* READ/GET _the user's list based on park type_
 * DELETE _a park from the user's list_ (in case of mistakes)
 
 💬 **Visitor Comments**
 
 * CREATE/POST _a comment_
-* READ/GET _all comments for a state's national parks_
+* READ/GET _all comments for a state_ (WA or OR)
 * READ/GET _comments for a specific park_
 * READ/GET _comments by one specific user name_
-* UPDATE/PUT _edits_ (Admin only)
+* UPDATE/PUT _comment edits_ (Admin only)
 * DELETE _a comment_ (Admin only)
 
 ## 🔶 Data Models 🔶
@@ -64,6 +64,7 @@ The app will be a React Express app using MongoDB to store database contents.  C
 🏞️ Park Schema
 
 * Name
+* US State (WA or OR)
 * Park Type (NHS, NVM, NP, etc.)
 * Brief Description
 * Official Website
@@ -71,6 +72,13 @@ The app will be a React Express app using MongoDB to store database contents.  C
 * Mailing Address
 * Phone Number
 * Google Maps URL Link
+
+📝 User's Park List Schema
+
+* User Name
+* Park Name
+* State (WA or OR)
+* Park Type
 
 💬 User Comments Schema
 
@@ -95,6 +103,6 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 **Week 3** <sup>(week 8 of class)</sup> = Set up front end content (including CSS) and continue coding Express route files. Submit prototype/proof of concept with an updated README.
 
-**Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve, and finish any remaining coding.
+**Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve anything that is broken, and finish any remaining coding.
 
 **Week 5** <sup>(week 10 of class)</sup> = Finish testing, complete any final tweaks, and push the final deployment. Create slides for the in-class presentation.
