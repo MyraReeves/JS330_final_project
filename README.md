@@ -16,6 +16,12 @@ Once logged-in, a user will be able to create/read/update/delete their own uniqu
 
 <br>
 
+## Fulfilling Project Requirements:
+<!-- Clear and direct call-outs of how you will meet the various project requirements: -->
+The app will be a React Express app using MongoDB to store database contents.  CRUD routes will exist for keeping park lists and visitor comments.  All user accounts will be authenticated to allow for relevant post, update, and delete operations. User roles will determine authorization rights.  Only accounts with an _Admin_ role will be able to create, update, or delete the single master list of parks, and only an Admin will be able to delete or update information belonging to users who have the _Visitor_ role (such as their visitation comments). Indexes and text searches will allow for fast lookup of information for everyone.  Jest unit tests will be utilized to ensure all routes function properly.
+
+<br>
+
 <!-- A description of what the technical components of your project will be, including: the routes, the data models, any external data sources you'll use, etc.: -->
 ## Routes
 
@@ -54,11 +60,6 @@ Once logged-in, a user will be able to create/read/update/delete their own uniqu
 
 * User Id
 * Password
-
-<br>
-
-## Fulfilling Project Requirements:
-<!-- Clear and direct call-outs of how you will meet the various project requirements: -->
 
 <br>
 
