@@ -24,6 +24,7 @@ describe("/auth", () => {
     password: "456password",
   };
 
+
   describe("before signup", () => {
     describe("POST /", () => {
       it("should return 401 - Valid authentication credentials not provided", async () => {
@@ -32,12 +33,16 @@ describe("/auth", () => {
       });
     });
 
+
+
     describe("PUT /password", () => {
       it("should return 401 - Valid authentication credentials not provided", async () => {
         const res = await request(server).put("/auth/password").send(user0);
         expect(res.statusCode).toEqual(401);
       });
     });
+
+
 
     describe("POST /logout", () => {
       it("should return 404 - Not found", async () => {
@@ -46,6 +51,8 @@ describe("/auth", () => {
       });
     });
   });
+
+
 
   describe("signup ", () => {
     describe("POST /signup", () => {
@@ -73,7 +80,6 @@ describe("/auth", () => {
         });
         expect(res.statusCode).toEqual(400);
       });
-
 
       it("should return 400 if no password is entered - Bad Request", async () => {
         const res = await request(server).post("/auth/signup").send({
@@ -112,6 +118,7 @@ describe("/auth", () => {
       });
     });
   });
+
 
 
   describe.each([user0, user1])("User %#", (user) => {
@@ -167,6 +174,8 @@ describe("/auth", () => {
       });
     });
   });
+
+
 
   describe("After a user logs in", () => {
     let token0;
@@ -233,5 +242,76 @@ describe("/auth", () => {
       });
     });
   });
+
+
+
+  describe("DELETE /:id", () => {
+    let adminToken, userToken, targetUserId;
+
+    beforeEach(async () => {
+      // Create an admin user:
+      const adminHashed = await bcrypt.hash("adminpass", 10);
+      const adminUser = await User.create({
+        username: "Admin",
+        email: "admin@email.com",
+        password: adminHashed,
+        roles: ["admin"],
+      });
+
+      // Create a user to be deleted:
+      const userHashed = await bcrypt.hash("userpass", 10);
+      const targetUser = await User.create({
+        username: "DeleteMe",
+        email: "usertodelete@email.com",
+        password: userHashed,
+        roles: ["user"],
+      });
+
+      targetUserId = targetUser._id;
+
+      // Login both the admin and the user to be deleted:
+      const resAdmin = await request(server).post("/auth/login").send({
+        email: "admin@email.com",
+        password: "adminpass",
+      });
+
+      adminToken = resAdmin.body.token;
+
+      const resUser = await request(server).post("/auth/login").send({
+        email: "usertodelete@email.com",
+        password: "userpass",
+      });
+
+      userToken = resUser.body.token;
+    });
+
+    it("should return a 403 FORBIDDEN error if a non-admin user tries to delete another user", async () => {
+      const res = await request(server)
+        .delete(`/auth/${targetUserId}`)
+        .set("Authorization", "Bearer " + userToken);
+      expect(res.statusCode).toEqual(403);
+    });
+
+    it("should return a 404 NOT FOUND error if attempting to delete a non-existent user", async () => {
+      const fakeId = "64b9caccf0a0f0f0f0f0f0f0"; // This is a valid ObjectId format but it is not an id in database
+      const res = await request(server)
+        .delete(`/auth/${fakeId}`)
+        .set("Authorization", "Bearer " + adminToken);
+      expect(res.statusCode).toEqual(404);
+    });
+
+    it("should allow an admin to delete a user, return a 200 OK code, and text confirmation of deletion", async () => {
+      const res = await request(server)
+      .delete(`/auth/${targetUserId}`)
+      .set("Authorization", "Bearer " + adminToken);
+      expect(res.statusCode).toEqual(200);
+      expect(res.body).toEqual({ message: "User was successfully deleted" });
+
+      // Test to verify the user is truly gone after deletion:
+      const deletedUser = await User.findById(targetUserId);
+      expect(deletedUser).toBeNull();
+    });
+  });
+
 
 });
