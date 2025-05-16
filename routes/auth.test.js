@@ -96,7 +96,7 @@ describe("/auth", () => {
         expect(res.statusCode).toEqual(201);
       });
 
-      it("should return 409 Conflict with a repeat signup attempt", async () => {
+      it("should return 409 CONFLICT if there is a repeat signup attempt", async () => {
         let res = await request(server).post("/auth/signup").send(user0);
         expect(res.statusCode).toEqual(201);
         res = await request(server).post("/auth/signup").send(user0);
@@ -168,5 +168,70 @@ describe("/auth", () => {
     });
   });
 
+  describe("After a user logs in", () => {
+    let token0;
+    let token1;
+
+    beforeEach(async () => {
+      await request(server).post("/auth/signup").send(user0);
+      const res0 = await request(server).post("/auth/login").send(user0);
+      token0 = res0.body.token;
+      await request(server).post("/auth/signup").send(user1);
+      const res1 = await request(server).post("/auth/login").send(user1);
+      token1 = res1.body.token;
+    });
+
+    describe("PUT /password", () => {
+      it("should reject a bogus token", async () => {
+        const res = await request(server)
+          .put("/auth/password")
+          .set("Authorization", "Bearer BAD")
+          .send({ password: "123" });
+        expect(res.statusCode).toEqual(401);          // 401 indicates invalid authentication credentials
+      });
+
+      it("should reject an empty password", async () => {
+        const res = await request(server)
+          .put("/auth/password")
+          .set("Authorization", "Bearer " + token0)
+          .send({ password: "" });
+        expect(res.statusCode).toEqual(400);          // 400 is a generic "BAD REQUEST" code
+      });
+
+      it("should change the password for user0", async () => {
+        const res = await request(server)
+          .put("/auth/password")
+          .set("Authorization", "Bearer " + token0)
+          .send({ oldPassword: user0.password, newPassword: "123" });
+        expect(res.statusCode).toEqual(200);
+        let loginRes0 = await request(server).post("/auth/login").send(user0);
+        expect(loginRes0.statusCode).toEqual(401);
+        loginRes0 = await request(server).post("/auth/login").send({
+          email: user0.email,
+          password: "123",
+        });
+        expect(loginRes0.statusCode).toEqual(200);
+        const loginRes1 = await request(server).post("/auth/login").send(user1);
+        expect(loginRes1.statusCode).toEqual(200);
+      });
+      
+      it("should change the password for user1", async () => {
+        const res = await request(server)
+          .put("/auth/password")
+          .set("Authorization", "Bearer " + token1)
+          .send({ oldPassword: user1.password, newPassword: "123" });
+        expect(res.statusCode).toEqual(200);
+        const loginRes0 = await request(server).post("/auth/login").send(user0);
+        expect(loginRes0.statusCode).toEqual(200);
+        let loginRes1 = await request(server).post("/auth/login").send(user1);
+        expect(loginRes1.statusCode).toEqual(401);
+        loginRes1 = await request(server).post("/auth/login").send({
+          email: user1.email,
+          password: "123",
+        });
+        expect(loginRes1.statusCode).toEqual(200);
+      });
+    });
+  });
 
 });
