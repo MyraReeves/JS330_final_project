@@ -114,4 +114,59 @@ describe("/auth", () => {
   });
 
 
+  describe.each([user0, user1])("User %#", (user) => {
+    beforeEach(async () => {
+      const hashed0 = await bcrypt.hash(user0.password, 10);
+      const hashed1 = await bcrypt.hash(user1.password, 10);
+      await User.create({ username: user0.username, email: user0.email, password: hashed0, roles: ["user"]});
+      await User.create({ username: user1.username, email: user1.email, password: hashed1, roles: ["user"]});
+    });
+
+    describe("POST /", () => {
+      it("should return 400 (Bad Request) if a password isn't provided during logging in", async () => {
+        const res = await request(server).post("/auth/login").send({
+          email: user.email,
+        });
+        expect(res.statusCode).toEqual(400);
+      });
+
+      it("should return 401 if the entered password doesn't match what's on file - Valid authentication credentials not provided", async () => {
+        const res = await request(server).post("/auth/login").send({
+          email: user.email,
+          password: "123",
+        });
+        expect(res.statusCode).toEqual(401);
+      });
+
+      it("should return 200 OK and a token when password matches", async () => {
+        const res = await request(server).post("/auth/login").send(user);
+        expect(res.statusCode).toEqual(200);
+        expect(typeof res.body.token).toEqual("string");
+      });
+
+      it("should not store the user token", async () => {
+        const res = await request(server).post("/auth/login").send(user);
+        const token = res.body.token;
+        const users = await User.find().lean();
+        users.forEach((user) => {
+          expect(Object.values(user)).not.toContain(token);
+        });
+      });
+
+      it("should return a JWT with username, email, _id, and roles inside, but not password", async () => {
+        const res = await request(server).post("/auth/login").send(user);
+        const token = res.body.token;
+        const decodedToken = jwt.decode(token);
+        expect(decodedToken.username).toEqual(user.username);
+        expect(decodedToken.email).toEqual(user.email);
+        expect(decodedToken.roles).toEqual(["user"]);
+        expect(decodedToken._id).toMatch(
+          /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i,           // Regex for Mongo's _id
+        );
+        expect(decodedToken.password).toBeUndefined();
+      });
+    });
+  });
+
+
 });
