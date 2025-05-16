@@ -129,7 +129,7 @@ router.delete("/:id", isAuthorized, isAdmin, async (req, res) => {
         if (!deleted) return res.sendStatus(404);
 
         // Otherwise, send confirmation that the user was deleted:
-        res.json({ message: "User deleted" });
+        res.json({ message: "User was successfully deleted" });
     } 
     catch (err) {
         res.sendStatus(500);
