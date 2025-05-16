@@ -97,12 +97,12 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 ## 🔶 Project Timeline 🔶
 <!-- A timeline for what project components you plan to complete, week by week, for the remainder of the class: -->
-**Week 1** <sup>(week 6 of class)</sup> = Submit project proposal.
+🗹 &nbsp; **Week 1** <sup>(week 6 of class)</sup> = Submit project proposal by May 7th.
 
-**Week 2** <sup>(week 7 of class)</sup> = Set up the skeleton of the app.  Create needed directories/files and install dependencies.  Begin creating routes, models, and DAO files.
+🗹 &nbsp; **Week 2** <sup>(week 7 of class)</sup> = Set up the skeleton of the app.  Create needed directories/files and install dependencies.  Begin creating routes, models, and DAO files.
 
-**Week 3** <sup>(week 8 of class)</sup> = Set up front end content (including CSS) and continue coding Express route files. Submit prototype/proof of concept with an updated README.
+**Week 3** <sup>(week 8 of class)</sup> _**DUE DATE: May 21st**_ = Set up front end content (including CSS) and continue coding Express route files. Submit prototype/proof of concept with an updated README.
 
-**Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve anything that is broken, and finish any remaining coding.
+☐ &nbsp; **Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve anything that is broken, and finish any remaining coding.
 
-**Week 5** <sup>(week 10 of class)</sup> = Finish testing, complete any final tweaks, and push the final deployment. Create slides for the in-class presentation.
+☐ &nbsp; **Week 5** <sup>(week 10 of class)</sup> = Finish testing, complete any final tweaks, and push the final deployment. Create slides for the in-class presentation.
