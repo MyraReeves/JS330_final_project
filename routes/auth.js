@@ -15,7 +15,7 @@ router.post("/signup", async (req, res) => {
     const { username, email, password, roles = ["user"] } = req.body;
 
     // Check first that the username, email, and password aren't empty strings. If they are, then return a 400 Bad Request error:
-    if (!username || !email || !password || password.trim() === ""){
+    if (!username || username.trim() === "" || !email || !password || password.trim() === ""){
         return res.sendStatus(400)
     }
 
@@ -137,5 +137,5 @@ router.delete("/:id", isAuthorized, isAdmin, async (req, res) => {
   });
 
 
-  
+
 module.exports = router;
