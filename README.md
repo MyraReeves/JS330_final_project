@@ -2,7 +2,9 @@
 
 My final project for UW's "Back-End Application Development With JavaScript" course
 
-<!-- Grading Criteria:  Demonstrate how project requirements will be met and value will be generated. Project should be split up into tasks laid out on a timeline. -->
+<!-- Leave an update at the top of your README listing what work is completed and what work still needs to be done. -->
+
+## 🔶 Proof of Concept 🔶
 
 ## 🔶 Project Proposal Description 🔶
 
@@ -101,7 +103,7 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 🗹 &nbsp; **Week 2** <sup>(week 7 of class)</sup> = Set up the skeleton of the app.  Create needed directories/files and install dependencies.  Begin creating routes, models, and DAO files.
 
-**Week 3** <sup>(week 8 of class)</sup> _**DUE DATE: May 21st**_ = Set up front end content (including CSS) and continue coding Express route files. Submit prototype/proof of concept with an updated README.
+🗹 **Week 3** <sup>(week 8 of class)</sup> _**DUE DATE: May 21st**_ = Set up front end content (including CSS) and continue coding Express route files. Submit prototype/proof of concept with an updated README.
 
 ☐ &nbsp; **Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve anything that is broken, and finish any remaining coding.
 
