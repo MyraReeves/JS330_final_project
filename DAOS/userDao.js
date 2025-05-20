@@ -13,14 +13,14 @@ async function createUser(data) {
 // READ/Find a user by email //
 //////////////////////////////
 async function findUserByEmail(email) {
-    return await User.findOne({ email });
+    return await User.findOne({ email }).select("+password");   // Adds password during login verification
 }
 
 /////////////////////////////
 // READ/Find a user by ID //
 ///////////////////////////
 async function findUserById(id) {
-    return await User.findById(id);
+    return await User.findById(id).select("-password");    // It excludes showing their password for obvious security reasons
 }
 
 ///////////////////////////////////
@@ -48,6 +48,7 @@ module.exports = {
     createUser,
     findUserByEmail,
     findUserById,
+    findUserByUsername,
     updateUser,
     deleteUser
 };
