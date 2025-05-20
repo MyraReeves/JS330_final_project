@@ -96,12 +96,12 @@ router.get("/", isAuthorized, async (req, res) => {
 
 
 
-////////////////////////
-// READ/GET one user //
-//////////////////////
-router.get("/:id", isAuthorized, async (req, res) => {
+////////////////////////////////////////////////////////////////////////////////////
+// READ/GET one user by their username - A user must be logged in to access this //
+//////////////////////////////////////////////////////////////////////////////////
+router.get("/username/:username", isAuthorized, async (req, res) => {
     try {
-        const user = await userDao.findUserById(req.params.id);
+        const user = await userDao.findUserByUsername(req.params.id);
 
         // Return an error if the user is not found:
         if (!user) return res.sendStatus(404);
