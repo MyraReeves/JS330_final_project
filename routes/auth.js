@@ -1,5 +1,5 @@
 const express = require("express");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");   Removed because the internet says best practice is to hash in the model via pre-save instead of in the routes
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const isAdmin = require("../middleware/isAdmin");
@@ -16,12 +16,12 @@ router.post("/signup", async (req, res) => {
 
     // Check first that the username, email, and password aren't empty strings. If they are, then return a 400 Bad Request error:
     if (!username || username.trim() === "" || !email || !password || password.trim() === ""){
-        return res.sendStatus(400)
+        return res.status(400).json({ message: "ERROR:  Username, email, and password are all required fields" });
     }
 
     try {
-        const hashed = await bcrypt.hash(password, 10);
-        const user = await userDao.createUser({ username, email, password: hashed, roles });
+        // const hashed = await bcrypt.hash(password, 10);     Removed because the internet says best practice is to hash in the model via pre-save instead of in the routes
+        const user = await userDao.createUser({ username, email, password, roles });
         await user.save();
         res.status(201).json({ message: "New user successfully created!" });
     }
