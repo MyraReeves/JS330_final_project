@@ -57,7 +57,7 @@ router.post("/login", async (req, res) => {
         if (!user) return res.sendStatus(401);
 
         // Compare the entered password with the one saved in the DB for that user:
-        const match = await bcrypt.compare(password, user.password);
+        const match = await user.comparePassword(password)
 
         // Return an "Unauthorized" error if the password credentials don't match:
         if (!match) return res.sendStatus(401);
