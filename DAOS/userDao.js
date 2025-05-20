@@ -23,6 +23,13 @@ async function findUserById(id) {
     return await User.findById(id);
 }
 
+///////////////////////////////////
+// READ/Find a user by Username //
+/////////////////////////////////
+async function findUserByUsername(username) {
+    return await User.findOne({ username }).select("-password");        // It excludes showing their password for obvious security reasons
+}
+
 //////////////////////////////////////////////////////
 // UPDATE a user's account info (such as password) //
 ////////////////////////////////////////////////////
