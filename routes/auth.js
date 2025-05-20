@@ -93,19 +93,19 @@ router.put("/password", isAuthorized, async (req, res) => {
 
     try {
         // Find the user by their id:
-        const user = await userDao.findUserById(req.user._id);
+        const user = await User.findById(req.user._id);
 
         // Return an error if the user is not found:
         if (!user) return res.sendStatus(404);
 
         // Compare the entered password with the one saved inside the DB
-        const match = await bcrypt.compare(oldPassword, user.password);
+        const match = await user.comparePassword(oldPassword);
 
         // Return an "Unauthorized" error if the previous password that is entered does not match what was saved:
         if (!match) return res.sendStatus(401);
 
-        // Otherwise, encrypt the new password and save it:
-        user.password = await bcrypt.hash(newPassword, 10);
+        // Otherwise, encrypt the new password using the pre-save instructions in the model file:
+        user.password = newPassword;
         await user.save();
         res.json({ message: "Password successfully updated!" });
     }
