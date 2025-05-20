@@ -80,9 +80,46 @@ router.post("/login", async (req, res) => {
 
 
 
+///////////////////////////////////////////////////////////////////
+// READ/GET all users - A user must be logged in to access this //
+/////////////////////////////////////////////////////////////////
+router.get("/", isAuthorized, async (req, res) => {
+    try {
+        const users = await userDao.getAllUsers();
+        res.json(users);
+    }
+    // Send an interal server error 500 if the request failed for some other reason:
+    catch (error) {
+        res.sendStatus(500);
+    }
+});
+
+
+
+////////////////////////
+// READ/GET one user //
 //////////////////////
-// Change password //
-////////////////////
+router.get("/:id", isAuthorized, async (req, res) => {
+    try {
+        const user = await userDao.findUserById(req.params.id);
+
+        // Return an error if the user is not found:
+        if (!user) return res.sendStatus(404);
+
+        // Otherwise, return the user:
+        res.json(user);
+    }
+    // Send an interal server error 500 if the request failed for some other reason:
+    catch (error) {
+        res.sendStatus(500);
+    }
+});
+
+
+
+///////////////////////////////
+// UPDATE - Change password //
+/////////////////////////////
 router.put("/password", isAuthorized, async (req, res) => {
     const { oldPassword, newPassword } = req.body;
 
