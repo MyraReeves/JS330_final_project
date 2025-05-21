@@ -2,50 +2,50 @@
 const Park = require("../models/parkModel")
 
 
-// ** NOTE:  All of these are restricted to admin only use! **
+// ** NOTE:  Use of these functions is restricted to admins only! **
 
 
 ////////////////////////
 // CREATE a new park //
 //////////////////////
 async function createPark(data) {
-  const park = new Park(data);
-  return await park.save();
+    const park = new Park(data);
+    return await park.save();
 }
 
 /////////////////////////
 // READ/Get all parks //
 ///////////////////////
 async function getAllParks() {
-  return await Park.find();
+    return await Park.find();
 }
 
 ///////////////////////////////
 // READ/Find parks by state //
 /////////////////////////////
 async function getParksByState(state) {
-  return await Park.find({ state: state.toUpperCase() });
+    return await Park.find({ state: state.toUpperCase() });
 }
 
 ///////////////////////////////
 // READ/Find one park by ID //
 /////////////////////////////
 async function getParkById(id) {
-  return await Park.findById(id);
+    return await Park.findById(id);
 }
 
 ///////////////////////////
 // UPDATE a park's info //
 /////////////////////////
 async function updatePark(id, updates) {
-  return await Park.findByIdAndUpdate(id, updates, { new: true });
+    return await Park.findByIdAndUpdate(id, updates, { new: true });
 }
 
 ////////////////////
 // DELETE a park //
 //////////////////
 async function deletePark(id) {
-  return await Park.findByIdAndDelete(id);
+    return await Park.findByIdAndDelete(id);
 }
 
 
