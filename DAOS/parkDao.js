@@ -27,6 +27,13 @@ async function getParksByState(state) {
     return await Park.find({ state: state.toUpperCase() });
 }
 
+/////////////////////////////////
+// READ/Find one park by name //
+///////////////////////////////
+async function getParkByName(parkName) {
+    return await Park.findOne({ parkName });
+}
+
 ///////////////////////////////
 // READ/Find one park by ID //
 /////////////////////////////
@@ -53,6 +60,7 @@ module.exports = {
     createPark,
     getAllParks,
     getParksByState,
+    getParkByName,
     getParkById,
     updatePark,
     deletePark,
