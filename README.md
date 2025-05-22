@@ -4,7 +4,7 @@ My final project for UW's "Back-End Application Development With JavaScript" cou
 
 ## 🔶 Proof of Concept 🔶
 <!-- Leave an update at the top of your README listing what work is completed and what work still needs to be done. -->
-Several of the files for the back-end have been completed. It has a mongoose connection, a running express server, and the necessary libraries installed.  Models exist for the users accounts, the master park list, the user comments, and the users' "visited parks" list.  Routes exist for the master park list, user comments, auth (user account creation/editing), and the users' "visited parks" list.
+Several of the files for the back-end have been completed. It has a mongoose connection, a running express server, and the necessary libraries installed.  Models exist for the user accounts, the master park list, the user comments, and the users' "visited parks" lists.  Routes exist for the master park list, user comments, auth (user account creation/editing), and the users' "visited parks" lists.
 
 Progress took longer than I had originally intended (See checklist at the bottom of this README).  Depending on how back-end testing goes, I may need to limit the scope of the project to back-end only.  However, I am still currently hopeful that there is enough wiggle-room left in the timeline for me to create a full front and back-end project. 🤞
 
