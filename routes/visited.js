@@ -2,7 +2,6 @@ const express = require("express");
 const Park = require("../models/parkModel");
 const visitedDao = require("../DAOS/visitedDao");
 const isAuthorized = require("../middleware/isAuthorized");
-const isAdmin = require("../middleware/isAdmin");
 const router = express.Router();
 
 // NOTE: Users can manage only their own visited list, but Admins can manage any user's visited list via their username or userId.
