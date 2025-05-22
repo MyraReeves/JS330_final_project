@@ -5,6 +5,8 @@ const isAuthorized = require("../middleware/isAuthorized");
 const isAdmin = require("../middleware/isAdmin");
 const router = express.Router();
 
+// NOTE: Users can manage only their own visited list, but Admins can manage any user's visited list via their username or userId.
+
 
 /////////////////////////////////////////////////////////////////
 // CREATE a "visited parks" list if the user doesn't have one //
@@ -98,6 +100,16 @@ router.put("/add-by-name/:parkName", isAuthorized, async (req, res) => {
     return res.status(400).json({ message: "Invalid park name entered" });
     }
 
+    // Allow admins to update other user's lists:
+    let targetUserId = req.user._id;
+    if (req.user.roles.includes("admin") && req.query.target) {
+        const targetUser = await userDao.findUserByUsername(req.query.target.trim());
+    if (!targetUser) {
+        return res.status(404).json({ message: "User not found" });
+    }
+    targetUserId = targetUser._id;
+  }
+
     try {
         const park = await Park.findOne({
             // RegEx to make the search case-insensitive:
@@ -110,7 +122,7 @@ router.put("/add-by-name/:parkName", isAuthorized, async (req, res) => {
         }
 
         // Add the park to the visited list by its _id:
-        const updated = await visitedDao.addParkToVisited(req.user._id, park._id);
+        const updated = await visitedDao.addParkToVisited(targetUserId, park._id);
 
         // Check whether a list exists for that user. If not, return an error:
         if (!updated) return res.status(404).json({ message: "List not found" });
@@ -135,6 +147,16 @@ router.delete("/remove-by-name/:parkName", isAuthorized, async (req, res) => {
      return res.status(400).json({ message: "Invalid park name entered" });
     }
 
+    // Allow admins to delete parks from other user's lists:
+    let targetUserId = req.user._id;
+    if (req.user.roles.includes("admin") && req.query.target) {
+        const targetUser = await userDao.findUserByUsername(req.query.target.trim());
+    if (!targetUser) {
+        return res.status(404).json({ message: "User not found" });
+    }
+    targetUserId = targetUser._id;
+    }
+
     try {
         const park = await Park.findOne({
             // Use RegEx to make the search case-insensitive:
@@ -146,7 +168,7 @@ router.delete("/remove-by-name/:parkName", isAuthorized, async (req, res) => {
             return res.status(404).json({ message: "Park not found." });
         }
 
-        const updated = await visitedDao.removeParkFromVisited(req.user._id, park._id);
+        const updated = await visitedDao.removeParkFromVisited(targetUserId, park._id);
     
         if (!updated) return res.sendStatus(404);
 
