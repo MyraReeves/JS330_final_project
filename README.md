@@ -17,10 +17,11 @@ Progress took longer than I had originally intended (See checklist at the bottom
 
 **Still needs to be done:**
 
-* Additional testing files
+* Modify the existing visited.js GET routes so that all logged-in users will be able to view the visited parks list of any other user by their username (for all 3 routes - all parks, by type, and by state)
+* Finish auth.test file and write additional testing files
 * Front-end HTML
 * CSS
-* Testing
+* Test and fix any problems
 
 ## 🔶 Project Proposal Description 🔶
 
