@@ -1,5 +1,5 @@
 const express = require("express");
-const Visited = require("../models/visitedModel");
+const Park = require("../models/parkModel");
 const visitedDao = require("../DAOS/visitedDao");
 const isAuthorized = require("../middleware/isAuthorized");
 const isAdmin = require("../middleware/isAdmin");
@@ -86,14 +86,29 @@ router.get("/username/:username/state/:state", async (req, res) => {
 ///////////////////////////////////////////////////////////////
 // UPDATE - Add a new park to a user's "visited parks" list //
 /////////////////////////////////////////////////////////////
-router.put("/add/:parkId", isAuthorized, async (req, res) => {
+router.put("/add-by-name/:parkName", isAuthorized, async (req, res) => {
+    const parkName = req.params.parkName?.trim();
+
+    // If the requested park name doesn't exist, return an error:
+    if (!parkName || parkName.length < 2) {
+    return res.status(400).json({ message: "Invalid park name entered" });
+    }
+
     try {
-        const updated = await visitedDao.addParkToVisited(req.user._id, req.params.parkId);
+        const park = await Park.findOne({ parkName });
+
+        // If the requested park can't be found, throw an error:
+        if (!park) {
+        return res.status(404).json({ message: "No parks with that name were found" });
+        }
+
+        // Add the park to the visited list by its _id:
+        const updated = await visitedDao.addParkToVisited(req.user._id, park._id);
 
         // Check whether a list exists for that user. If not, return an error:
         if (!updated) return res.status(404).json({ message: "List not found" });
 
-        // Otherwise, send the update:
+        // Otherwise, send the updated list:
         res.json(updated);
     } 
     catch (err) {
@@ -105,9 +120,16 @@ router.put("/add/:parkId", isAuthorized, async (req, res) => {
 ///////////////////////////////////////////////////////////////
 // DELETE a park from the user's list (in case of mistakes) //
 /////////////////////////////////////////////////////////////
-router.delete("/remove/:parkId", isAuthorized, async (req, res) => {
+router.delete("/remove-by-name/:parkName", isAuthorized, async (req, res) => {
     try {
-        const updated = await visitedDao.removeParkFromVisited(req.user._id, req.params.parkId);
+        const park = await Park.findOne({ parkName: req.params.parkName.trim() });
+
+        // If the requested park can't be found, return an error:
+        if (!park) {
+            return res.status(404).json({ message: "Park not found." });
+        }
+
+        const updated = await visitedDao.removeParkFromVisited(req.user._id, park._id);
     
         if (!updated) return res.sendStatus(404);
 
