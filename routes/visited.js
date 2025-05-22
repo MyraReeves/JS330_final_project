@@ -28,6 +28,7 @@ router.post("/", isAuthorized, async (req, res) => {
 });
 
 
+
 //////////////////////////////////////////////////////
 // READ all visited parks for a specified username //
 ////////////////////////////////////////////////////
@@ -45,6 +46,7 @@ router.get("/username/:username", async (req, res) => {
         res.sendStatus(500);
     }
 });
+
 
 
 ////////////////////////////////////////////////////////////////////
@@ -66,6 +68,7 @@ router.get("/username/:username/type/:type", async (req, res) => {
 });
 
 
+
 /////////////////////////////////////////////////////////////////////////
 // READ which parks inside one specified STATE a username has visited //
 ///////////////////////////////////////////////////////////////////////
@@ -83,6 +86,7 @@ router.get("/username/:username/state/:state", async (req, res) => {
 });
 
 
+
 ///////////////////////////////////////////////////////////////
 // UPDATE - Add a new park to a user's "visited parks" list //
 /////////////////////////////////////////////////////////////
@@ -95,7 +99,10 @@ router.put("/add-by-name/:parkName", isAuthorized, async (req, res) => {
     }
 
     try {
-        const park = await Park.findOne({ parkName });
+        const park = await Park.findOne({
+            // RegEx to make the search case-insensitive:
+            parkName: { $regex: new RegExp(`^${parkName}$`, "i") } 
+        });
 
         // If the requested park can't be found, throw an error:
         if (!park) {
@@ -117,12 +124,22 @@ router.put("/add-by-name/:parkName", isAuthorized, async (req, res) => {
 });
 
 
+
 ///////////////////////////////////////////////////////////////
 // DELETE a park from the user's list (in case of mistakes) //
 /////////////////////////////////////////////////////////////
 router.delete("/remove-by-name/:parkName", isAuthorized, async (req, res) => {
+    const parkName = req.params.parkName?.trim();
+
+    if (!parkName || parkName.length < 2) {
+     return res.status(400).json({ message: "Invalid park name entered" });
+    }
+
     try {
-        const park = await Park.findOne({ parkName: req.params.parkName.trim() });
+        const park = await Park.findOne({
+            // Use RegEx to make the search case-insensitive:
+            parkName: { $regex: new RegExp(`^${parkName}$`, "i") }
+        });
 
         // If the requested park can't be found, return an error:
         if (!park) {
