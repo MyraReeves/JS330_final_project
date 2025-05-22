@@ -28,12 +28,15 @@ router.post("/", isAuthorized, async (req, res) => {
     }
 
     try {
+        // Find the park by case-insensitive name:
         const park = await Park.findOne({ parkName: new RegExp(`^${parkName}$`, "i") });
 
+        // If the named park can't be found, return a 404 error:
         if (!park) {
             return res.sendStatus(404);
         }
 
+        // Get the named park's _id and use that to store the comment:
         const comment = await commentsDao.createComment({
             userId: req.user._id,
             parkId: park._id,
