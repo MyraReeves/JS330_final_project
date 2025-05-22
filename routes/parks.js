@@ -60,6 +60,26 @@ router.get("/state/:state", async (req, res) => {
 });
 
 
+/////////////////////////////////////////
+// READ/GET a single park by its name //
+///////////////////////////////////////
+router.get("/name/:parkName", async (req, res) => {
+    try {
+        const park = await parkDao.getParkByName(req.params.parkName);
+
+        // Check whether the park exists in the database. If not, return a 404 error: 
+        if (!park) return res.sendStatus(404);
+
+        // Otherwise, return the requested park:
+        res.json(park);
+    }
+    // All other errors can return a generic internal server error 500 if the attempt fails:
+    catch (error) {
+        res.sendStatus(500);
+    }
+});
+
+
 //////////////////////////////////
 // UPDATE a park  - Admin only //
 ////////////////////////////////
