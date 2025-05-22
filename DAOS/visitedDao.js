@@ -67,9 +67,9 @@ async function getVisitedByState(username, state) {
     if (!user) return null;
 
     const visited = await Visited.findOne({ userId: user._id }).populate({
-    path: "parks",
-    match: { state },   // Filters using the specified state
-    select: "parkName state parkType",  // Specifies which fields to include when the results get returned
+        path: "parks",
+        match: { state },   // Filters using the specified state
+        select: "parkName state parkType",  // Specifies which fields to include when the results get returned
     });
 
     // Return the filtered list or an empty array if none match:
@@ -82,9 +82,9 @@ async function getVisitedByState(username, state) {
 /////////////////////////////////////////
 async function addParkToVisited(userId, parkId) {
     return await Visited.findOneAndUpdate(
-    { userId },
-    { $addToSet: { parks: parkId } }, // Prevents duplicates
-    { new: true }
+        { userId },
+        { $addToSet: { parks: parkId } }, // Prevents duplicates
+        { new: true }
     ).populate("parks", "parkName state parkType");
 }
 
@@ -94,9 +94,9 @@ async function addParkToVisited(userId, parkId) {
 /////////////////////////////////////
 async function removeParkFromVisited(userId, parkId) {
     return await Visited.findOneAndUpdate(
-    { userId },
-    { $pull: { parks: parkId } },
-    { new: true }
+        { userId },
+        { $pull: { parks: parkId } },
+        { new: true }
     ).populate("parks", "parkName state parkType");
 }
 
