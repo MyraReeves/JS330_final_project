@@ -2,9 +2,25 @@
 
 My final project for UW's "Back-End Application Development With JavaScript" course
 
-<!-- Leave an update at the top of your README listing what work is completed and what work still needs to be done. -->
-
 ## 🔶 Proof of Concept 🔶
+<!-- Leave an update at the top of your README listing what work is completed and what work still needs to be done. -->
+Several of the files for the back-end have been completed. It has a mongoose connection, a running express server, and the necessary libraries installed.  Models exist for the users accounts, the master park list, the user comments, and the users' "visited parks" list.  Routes exist for the master park list, user comments, auth (user account creation/editing), and the users' "visited parks" list.
+
+Progress took longer than I had originally intended (See checklist at the bottom of this README).  Depending on how back-end testing goes, I may need to limit the scope of the project to back-end only.  However, I am still currently hopeful that there is enough wiggle-room left in the timeline for me to create a full front and back-end project. 🤞
+
+**Completed:**
+
+* Routes
+* Models
+* DAO
+* Tests for auth (In progress)
+
+**Still needs to be done:**
+
+* Additional testing files
+* Front-end HTML
+* CSS
+* Testing
 
 ## 🔶 Project Proposal Description 🔶
 
@@ -36,6 +52,14 @@ The app will be a React Express app using MongoDB to store database contents.  C
 * READ/GET _the information about a single user_
 * UPDATE/PUT _an existing account_ ("Change Password", etc.)
 * DELETE _a user_
+
+🏞️ **Park Master List**
+
+* CREATE/POST a new park to the master list (Admin only)
+* READ/GET a list of all parks in the database
+* READ/GET a list of all parks in a specified state (only options are WA or OR)
+* UPDATE the information about a specific park (Admin only)  
+* DELETE a park from the master list (Admin only)
 
 🏞️ **Parks Visited List**
 
@@ -103,7 +127,7 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 🗹 &nbsp; **Week 2** <sup>(week 7 of class)</sup> = Set up the skeleton of the app.  Create needed directories/files and install dependencies.  Begin creating routes, models, and DAO files.
 
-🗹 **Week 3** <sup>(week 8 of class)</sup> _**DUE DATE: May 21st**_ = Set up front end content (including CSS) and continue coding Express route files. Submit prototype/proof of concept with an updated README.
+🗹 **Week 3** <sup>(week 8 of class)</sup> _**DUE DATE: May 21st**_ = ~~Set up front end content (including CSS) and~~ continue coding Express route files. Submit prototype/proof of concept with an updated README.
 
 ☐ &nbsp; **Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve anything that is broken, and finish any remaining coding.
 
