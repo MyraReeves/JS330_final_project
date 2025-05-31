@@ -20,7 +20,7 @@ function OregonDropdownMenu(props) {
                 <option value="crater">Crater Lake</option>
                 <option value="fossil">John Day Fossil Beds</option>
                 <option value="lewisClark">Lewis & Clark</option>
-                <option value="caves">Oregon Caves</option>
+                <option value="caves">Oregon Caves National Monument & Preserve </option>
             </select>
         </form>
     </div>

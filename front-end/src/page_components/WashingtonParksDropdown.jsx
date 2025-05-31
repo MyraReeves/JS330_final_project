@@ -17,7 +17,7 @@ function WashingtonDropdownMenu(props) {
             <label htmlFor="park-choices">Choose which park you would like to visit: </label><br/>
             <select name="washingtonParks" id="park-choices" onChange={handleSelection} value={selection}>
                 <option disabled> </option>
-                <option value="japaneseExclusion">Bainbridge Island Japanese American Exclusion Memorial</option>
+                <option value="japaneseExclusion">Japanese American Exclusion Memorial</option>
                 <option value="ebey">Ebey's Landing</option>
                 <option value="vancouver">Fort Vancouver</option>
                 <option value="klondike">Klondike Gold Rush</option>
