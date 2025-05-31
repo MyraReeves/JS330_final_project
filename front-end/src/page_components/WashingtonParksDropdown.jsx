@@ -27,7 +27,7 @@ function WashingtonDropdownMenu(props) {
                 <option value="rainier">Mount Rainier</option>
                 <option value="nezPierce">Nez Perce - Buffalo Eddy</option>
                 <option value="cascades">North Cascades</option>
-                <option value="olympc">Olympic National Park</option>
+                <option value="olympic">Olympic National Park</option>
                 <option value="sanJuan">San Juan Island</option>
                 <option value="whitman">Whitman Mission</option>
             </select>
