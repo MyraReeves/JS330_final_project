@@ -10,6 +10,22 @@ function Oregon() {
                 Choose a different state
             </p>
         }
+
+        if (selection == 'crater'){
+            return <div className="park-info">  </div>
+        }
+
+        if (selection == 'fossil'){
+            return <div className="park-info">  </div>
+        }
+
+        if (selection == 'lewisClark'){
+            return <div className="park-info">  </div>
+        }
+
+        if (selection == 'caves'){
+            return <div className="park-info">  </div>
+        }
     }
 
   
