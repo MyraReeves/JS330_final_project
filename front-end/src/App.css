@@ -26,6 +26,50 @@ header {
     overflow: hidden;
 }
 
+.dropdown-menu {
+  float: left;
+  color: lightgray;
+  font-family: serif;
+}
+
+.dropdown-menu:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-button {
+  background-color: #964b00;
+  color: lightgray;
+  font-size: 20pt;
+  border: none;
+  padding: 3px 0 0 3px;
+  left: 0;
+}
+
+.dropdown-button:hover {
+  border: none;
+}
+
+.dropdown-content {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  display: none;
+  letter-spacing: 1.5px;
+  font-size: 12pt;
+  position: absolute;
+  z-index: 1;
+  background-color: #964b00;
+}
+
+.dropdown-content a:link, .dropdown-content a:visited {
+  color: lightgray;
+}
+
+.dropdown-content a:hover {
+  background-color: #b86d22;
+}
+
 
 /* 
 ********
