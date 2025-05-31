@@ -13,7 +13,7 @@ function Header() {
             </ul>
         </div>
         <h1>
-            🏞 &nbsp; Visit Your National Parks! &nbsp; 🏞
+            🏞 Visit Your National Parks! 🏞
         </h1>
     </header>
     )
