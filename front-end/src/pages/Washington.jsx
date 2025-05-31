@@ -13,55 +13,55 @@ function Washington() {
         }
 
         if (selection == 'japaneseExclusion'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
 
         if (selection == 'ebey'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
 
         if (selection == 'vancouver'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
 
         if (selection == 'klondike'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
 
         if (selection == 'roosevelt'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
 
         if (selection == 'lewisClark'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
         
         if (selection == 'manhattan'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
                 
         if (selection == 'rainier'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
                 
         if (selection == 'nezPierce'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
                 
         if (selection == 'cascades'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
 
         if (selection == 'olympic'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
                         
         if (selection == 'sanJuan'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
                
         if (selection == 'whitman'){
-            return <div className="box-shadow"> <LibraryOfCongressAPI referenceURL = 'resource/rbc0001.2005gen17970/?st=gallery&c=417'/> </div>
+            return <div className="park-info">   </div>
         }
     }
 
