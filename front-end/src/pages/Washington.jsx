@@ -1,5 +1,7 @@
 import { useState } from "react"
+import { Link } from 'react-router-dom';
 import WashingtonDropdownMenu from "../page_components/WashingtonParksDropdown"
+import washingtonMap from '../images/washington-nationalparks.gif'
 
 function Washington() {
     const [selection, setSelection] = useState('')
@@ -7,9 +9,9 @@ function Washington() {
     const checkForSelection = () => {
 
          if (selection == ''){
-            return <>
-                <p className="changeState">Choose a different state</p>
-            </> 
+            return <div className="stateMap">
+                <img src={washingtonMap} alt='A map showing the location of all national park sites in Washington state' className="nothing-selected"/>
+            </div>
         }
 
         if (selection == 'japaneseExclusion'){
