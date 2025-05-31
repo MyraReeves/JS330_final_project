@@ -70,11 +70,11 @@ function Washington() {
         <main>
             <div className="state">
                 <h1>Washington State</h1>
-            </div>
             <WashingtonDropdownMenu 
                 selection={selection} 
                 setSelection={setSelection} 
             />
+            </div>
 
             <div className="selection">{checkForSelection()}</div>
             

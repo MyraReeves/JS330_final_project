@@ -33,11 +33,11 @@ function Oregon() {
         <main>
             <div className="state">
                 <h1>Oregon</h1>
-            </div>
              <OregonDropdownMenu 
                 selection={selection} 
                 setSelection={setSelection} 
             />
+            </div>
 
             <div className="selection">{checkForSelection()}</div>
             
