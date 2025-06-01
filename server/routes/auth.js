@@ -74,6 +74,7 @@ router.post("/login", async (req, res) => {
 
     // Send an internal server error 500 if the log in attempt fails for some other reason:
     catch (error) {
+        console.error(error);       // For troubleshooting in terminal during development build
         res.sendStatus(500);
     }
 });
