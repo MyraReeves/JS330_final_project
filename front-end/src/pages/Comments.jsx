@@ -37,7 +37,9 @@ function Comments() {
 
     return (
         <div>
-
+            {backendData.comments.map( (comment, index) => {
+                <p key={index}>{comment}</p>
+            })}
         </div>
     )
 }
