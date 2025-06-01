@@ -1,5 +1,6 @@
 // NOTE:  This file combines into one file the two separate files "index.js" and "server.js" that were used during homeworks.
 
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -16,9 +17,9 @@ app.use(express.json());
 app.use(morgan("dev"));             // Info at https://expressjs.com/en/resources/middleware/morgan.html
 
 
-/*
+
 // Connect to MongoDB:
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -27,7 +28,7 @@ mongoose.connect(process.env.MONGODB_URI, {
     console.error("❌ Failed to connect to MongoDB for the following reason:", error);
     process.exit(1);
 });
-*/
+
 
 
 // Connect to routes:
