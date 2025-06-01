@@ -1,3 +1,6 @@
+# Manually seeding the creation of an Admin account
+seedAdmin.js
+
 # Logs
 logs
 *.log
