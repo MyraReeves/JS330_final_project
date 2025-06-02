@@ -9,6 +9,9 @@ const isAdmin = require("../middleware/isAdmin");
 // CREATE a new park  - Admin only //
 ////////////////////////////////////
 router.post("/", isAuthorized, isAdmin, async (req, res) => {
+    // Console log for debugging purposes:
+    console.log("🕵️ The authenticated user info is as follows:", req.user);
+
     try {
         const park = await parkDao.createPark(req.body);
         res.status(201).json(park);
@@ -16,6 +19,7 @@ router.post("/", isAuthorized, isAdmin, async (req, res) => {
 
     // A generic 400 error can be used for all creation errors:
     catch (error) {
+        console.error("💢 The following problem occurred while attempting to create a new park entry:", error);
         res.sendStatus(400);
     }
 });
