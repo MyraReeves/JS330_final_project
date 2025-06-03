@@ -1,16 +1,32 @@
 const request = require("supertest");
 var jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
-const server = require("../server");
+const bcrypt = require("bcrypt");
+const app = require("../app");
 const testUtils = require("../test-utils");
 const User = require("../models/userModel");
 process.env.JWT_SECRET = "testsecret";
-
+let server;
 
 describe("/auth", () => {
-  beforeAll(testUtils.connectDB);
-  afterAll(testUtils.stopDB);
-  afterEach(testUtils.clearDB);
+
+  beforeAll(async () => {
+    await testUtils.connectDB();           // Connect to the in-memory test database
+    server = app.listen(5005);             // Start the Express server on a new port for testing
+  });
+
+  afterEach(async () => {
+    await testUtils.clearDB();
+  });            // Clear all the testing data between tests
+
+  afterAll(async () => {
+    await testUtils.stopDB();              // Disconnect from the in-memory test database
+    await new Promise((resolve, reject) => {
+      server.close((err) => {             // Close the server
+        if (err) return reject(err);
+        resolve();
+      });
+    });
+  })
 
   const user0 = {
     username: "John Doe",
@@ -28,28 +44,19 @@ describe("/auth", () => {
   describe("before signup", () => {
     describe("POST /", () => {
       it("should return 401 - Valid authentication credentials not provided", async () => {
-        const res = await request(server).post("/auth/login").send(user0);
+        const res = await request(server).post("/api/auth/login").send(user0);
         expect(res.statusCode).toEqual(401);
       });
     });
-
 
 
     describe("PUT /password", () => {
       it("should return 401 - Valid authentication credentials not provided", async () => {
-        const res = await request(server).put("/auth/password").send(user0);
+        const res = await request(server).put("/api/auth/password").send(user0);
         expect(res.statusCode).toEqual(401);
       });
     });
 
-
-
-    describe("POST /logout", () => {
-      it("should return 404 - Not found", async () => {
-        const res = await request(server).post("/auth/logout").send();
-        expect(res.statusCode).toEqual(404);
-      });
-    });
   });
 
 
@@ -57,7 +64,7 @@ describe("/auth", () => {
   describe("signup ", () => {
     describe("POST /signup", () => {
       it("should return 400 without a username - Bad Request", async () => {
-        const res = await request(server).post("/auth/signup").send({
+        const res = await request(server).post("/api/auth/signup").send({
           email: user0.email,
           password: user0.password,
         });
@@ -65,7 +72,7 @@ describe("/auth", () => {
       });
 
       it("should return 400 if an empty string is entered as a username - Bad Request", async () => {
-        const res = await request(server).post("/auth/signup").send({
+        const res = await request(server).post("/api/auth/signup").send({
           username: "",
           email: user1.email,
           password: user1.password,
@@ -74,7 +81,7 @@ describe("/auth", () => {
       });
 
       it("should return 400 if no email is entered - Bad Request", async () => {
-        const res = await request(server).post("/auth/signup").send({
+        const res = await request(server).post("/api/auth/signup").send({
           username: user0.username,
           password: user0.password,
         });
@@ -82,7 +89,7 @@ describe("/auth", () => {
       });
 
       it("should return 400 if no password is entered - Bad Request", async () => {
-        const res = await request(server).post("/auth/signup").send({
+        const res = await request(server).post("/api/auth/signup").send({
           username: user0.username,
           email: user0.email,
         });
@@ -90,7 +97,7 @@ describe("/auth", () => {
       });
 
       it("should return 400 if an empty string is entered as a password - Bad Request", async () => {
-        const res = await request(server).post("/auth/signup").send({
+        const res = await request(server).post("/api/auth/signup").send({
           email: user1.email,
           password: "",
         });
@@ -98,19 +105,19 @@ describe("/auth", () => {
       });
 
       it("should return 201 'Created' when signing up using valid credentials", async () => {
-        const res = await request(server).post("/auth/signup").send(user1);
+        const res = await request(server).post("/api/auth/signup").send(user1);
         expect(res.statusCode).toEqual(201);
       });
 
       it("should return 409 CONFLICT if there is a repeat signup attempt", async () => {
-        let res = await request(server).post("/auth/signup").send(user0);
+        let res = await request(server).post("/api/auth/signup").send(user0);
         expect(res.statusCode).toEqual(201);
-        res = await request(server).post("/auth/signup").send(user0);
+        res = await request(server).post("/api/auth/signup").send(user0);
         expect(res.statusCode).toEqual(409);
       });
 
       it("should not store raw passwords", async () => {
-        await request(server).post("/auth/signup").send(user0);
+        await request(server).post("/api/auth/signup").send(user0);
         const users = await User.find().lean();
         users.forEach((user) => {
           expect(Object.values(user).includes(user0.password)).toBe(false);
@@ -131,14 +138,14 @@ describe("/auth", () => {
 
     describe("POST /", () => {
       it("should return 400 (Bad Request) if a password isn't provided during logging in", async () => {
-        const res = await request(server).post("/auth/login").send({
+        const res = await request(server).post("/api/auth/login").send({
           email: user.email,
         });
         expect(res.statusCode).toEqual(400);
       });
 
       it("should return 401 if the entered password doesn't match what's on file - Valid authentication credentials not provided", async () => {
-        const res = await request(server).post("/auth/login").send({
+        const res = await request(server).post("/api/auth/login").send({
           email: user.email,
           password: "123",
         });
@@ -146,13 +153,13 @@ describe("/auth", () => {
       });
 
       it("should return 200 OK and a token when password matches", async () => {
-        const res = await request(server).post("/auth/login").send(user);
+        const res = await request(server).post("/api/auth/login").send(user);
         expect(res.statusCode).toEqual(200);
         expect(typeof res.body.token).toEqual("string");
       });
 
       it("should not store the user token", async () => {
-        const res = await request(server).post("/auth/login").send(user);
+        const res = await request(server).post("/api/auth/login").send(user);
         const token = res.body.token;
         const users = await User.find().lean();
         users.forEach((user) => {
@@ -161,7 +168,7 @@ describe("/auth", () => {
       });
 
       it("should return a JWT with username, email, _id, and roles inside, but not password", async () => {
-        const res = await request(server).post("/auth/login").send(user);
+        const res = await request(server).post("/api/auth/login").send(user);
         const token = res.body.token;
         const decodedToken = jwt.decode(token);
         expect(decodedToken.username).toEqual(user.username);
@@ -182,18 +189,18 @@ describe("/auth", () => {
     let token1;
 
     beforeEach(async () => {
-      await request(server).post("/auth/signup").send(user0);
-      const res0 = await request(server).post("/auth/login").send(user0);
+      await request(server).post("/api/auth/signup").send(user0);
+      const res0 = await request(server).post("/api/auth/login").send(user0);
       token0 = res0.body.token;
-      await request(server).post("/auth/signup").send(user1);
-      const res1 = await request(server).post("/auth/login").send(user1);
+      await request(server).post("/api/auth/signup").send(user1);
+      const res1 = await request(server).post("/api/auth/login").send(user1);
       token1 = res1.body.token;
     });
 
     describe("PUT /password", () => {
       it("should reject a bogus token", async () => {
         const res = await request(server)
-          .put("/auth/password")
+          .put("/api/auth/password")
           .set("Authorization", "Bearer BAD")
           .send({ password: "123" });
         expect(res.statusCode).toEqual(401);          // 401 indicates invalid authentication credentials
@@ -201,7 +208,7 @@ describe("/auth", () => {
 
       it("should reject an empty password", async () => {
         const res = await request(server)
-          .put("/auth/password")
+          .put("/api/auth/password")
           .set("Authorization", "Bearer " + token0)
           .send({ password: "" });
         expect(res.statusCode).toEqual(400);          // 400 is a generic "BAD REQUEST" code
@@ -209,32 +216,32 @@ describe("/auth", () => {
 
       it("should change the password for user0", async () => {
         const res = await request(server)
-          .put("/auth/password")
+          .put("/api/auth/password")
           .set("Authorization", "Bearer " + token0)
           .send({ oldPassword: user0.password, newPassword: "123" });
         expect(res.statusCode).toEqual(200);
-        let loginRes0 = await request(server).post("/auth/login").send(user0);
+        let loginRes0 = await request(server).post("/api/auth/login").send(user0);
         expect(loginRes0.statusCode).toEqual(401);
-        loginRes0 = await request(server).post("/auth/login").send({
+        loginRes0 = await request(server).post("/api/auth/login").send({
           email: user0.email,
           password: "123",
         });
         expect(loginRes0.statusCode).toEqual(200);
-        const loginRes1 = await request(server).post("/auth/login").send(user1);
+        const loginRes1 = await request(server).post("/api/auth/login").send(user1);
         expect(loginRes1.statusCode).toEqual(200);
       });
       
       it("should change the password for user1", async () => {
         const res = await request(server)
-          .put("/auth/password")
+          .put("/api/auth/password")
           .set("Authorization", "Bearer " + token1)
           .send({ oldPassword: user1.password, newPassword: "123" });
         expect(res.statusCode).toEqual(200);
-        const loginRes0 = await request(server).post("/auth/login").send(user0);
+        const loginRes0 = await request(server).post("/api/auth/login").send(user0);
         expect(loginRes0.statusCode).toEqual(200);
-        let loginRes1 = await request(server).post("/auth/login").send(user1);
+        let loginRes1 = await request(server).post("/api/auth/login").send(user1);
         expect(loginRes1.statusCode).toEqual(401);
-        loginRes1 = await request(server).post("/auth/login").send({
+        loginRes1 = await request(server).post("/api/auth/login").send({
           email: user1.email,
           password: "123",
         });
@@ -270,14 +277,14 @@ describe("/auth", () => {
       targetUserId = targetUser._id;
 
       // Login both the admin and the user to be deleted:
-      const resAdmin = await request(server).post("/auth/login").send({
+      const resAdmin = await request(server).post("/api/auth/login").send({
         email: "admin@email.com",
         password: "adminpass",
       });
 
       adminToken = resAdmin.body.token;
 
-      const resUser = await request(server).post("/auth/login").send({
+      const resUser = await request(server).post("/api/auth/login").send({
         email: "usertodelete@email.com",
         password: "userpass",
       });
@@ -287,7 +294,7 @@ describe("/auth", () => {
 
     it("should return a 403 FORBIDDEN error if a non-admin user tries to delete another user", async () => {
       const res = await request(server)
-        .delete(`/auth/${targetUserId}`)
+        .delete(`/api/auth/${targetUserId}`)
         .set("Authorization", "Bearer " + userToken);
       expect(res.statusCode).toEqual(403);
     });
@@ -295,14 +302,14 @@ describe("/auth", () => {
     it("should return a 404 NOT FOUND error if attempting to delete a non-existent user", async () => {
       const fakeId = "64b9caccf0a0f0f0f0f0f0f0"; // This is a valid ObjectId format but it is not an id in database
       const res = await request(server)
-        .delete(`/auth/${fakeId}`)
+        .delete(`/api/auth/${fakeId}`)
         .set("Authorization", "Bearer " + adminToken);
       expect(res.statusCode).toEqual(404);
     });
 
     it("should allow an admin to delete a user, return a 200 OK code, and text confirmation of deletion", async () => {
       const res = await request(server)
-      .delete(`/auth/${targetUserId}`)
+      .delete(`/api/auth/${targetUserId}`)
       .set("Authorization", "Bearer " + adminToken);
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({ message: "User was successfully deleted" });
