@@ -216,13 +216,13 @@ describe("/auth", () => {
         const res = await request(server)
           .put("/api/auth/password")
           .set("Authorization", "Bearer " + token0)
-          .send({ oldPassword: user0.password, newPassword: "123" });
+          .send({ oldPassword: user0.password, newPassword: "ThisIsNow8CharactersLong!" });
         expect(res.statusCode).toEqual(200);
         let loginRes0 = await request(server).post("/api/auth/login").send(user0);
         expect(loginRes0.statusCode).toEqual(401);
         loginRes0 = await request(server).post("/api/auth/login").send({
           email: user0.email,
-          password: "123",
+          password: "ThisIsNow8CharactersLong!",
         });
         expect(loginRes0.statusCode).toEqual(200);
         const loginRes1 = await request(server).post("/api/auth/login").send(user1);
@@ -233,7 +233,7 @@ describe("/auth", () => {
         const res = await request(server)
           .put("/api/auth/password")
           .set("Authorization", "Bearer " + token1)
-          .send({ oldPassword: user1.password, newPassword: "123" });
+          .send({ oldPassword: user1.password, newPassword: "ThisIsNow8CharactersLong!" });
         expect(res.statusCode).toEqual(200);
         const loginRes0 = await request(server).post("/api/auth/login").send(user0);
         expect(loginRes0.statusCode).toEqual(200);
@@ -241,7 +241,7 @@ describe("/auth", () => {
         expect(loginRes1.statusCode).toEqual(401);
         loginRes1 = await request(server).post("/api/auth/login").send({
           email: user1.email,
-          password: "123",
+          password: "ThisIsNow8CharactersLong!",
         });
         expect(loginRes1.statusCode).toEqual(200);
       });
