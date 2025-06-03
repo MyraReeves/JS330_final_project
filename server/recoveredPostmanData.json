@@ -40,6 +40,21 @@
     "phone": "360-569-6575",
     "googleMaps": "https://maps.app.goo.gl/wqQFRHwadREsi9Zs5"
   },
+
+  
+  {
+  "parkName": "San Juan Island National Historical Park",
+  "state": "WA",
+  "parkType": "NHP",
+  "description": "Since it is located on an island, travel to this national park is limited to only visitors who arrive by boat or air. Historically, ownership of the island was divided between the U.S. and Great Britian, and the two countries almost went to war over it in 1859. Educational historical reinactments often take place during the summer and there are over 23 miles of trails inside the park. Animal viewing highlights include the Island Marble Butterfly (previously feared extinct), whales, black colored red foxes, and several popular bird species.",
+  "websiteURL": "https://www.nps.gov/sajh/index.htm",
+  "visitorCenterHours": "During the summer, both the American Camp Visitor Center and English Camp Visitor Center are open Thurs - Tues from 10AM - 3PM.",
+  "streetAddress": "P.O. Box 429",
+  "city": "Friday Harbor",
+  "zipcode": "98250",
+  "phone": "360-378-2240",
+  "googleMaps": "https://maps.app.goo.gl/mExSgTRw1EZF7cEp7"
+  },
   {
   "parkName": "Whitman Mission National Historic Site",
   "state": "WA",
