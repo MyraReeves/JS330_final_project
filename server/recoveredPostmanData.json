@@ -41,7 +41,19 @@
     "googleMaps": "https://maps.app.goo.gl/wqQFRHwadREsi9Zs5"
   },
 
-  
+  {
+  "parkName": "Olympic National Park",
+  "state": "WA",
+  "parkType": "NP",
+  "description": "This park combines glaciated mountains, oceanside views, and a temperate rainforest!  It is designated as both a World Heritage Site and an International Biosphere Reserve by the United Nations!  Many plant and animal species are found only here and nowhere else on Earth!  Although the main park visitor center is open almost every day of the year, the Hoh Rain Forest center is only open during the summer (9am-5pm), requires driving over 30 miles away from the nearest amenities, and often becomes congested with stand-still traffic jams on weekends.",
+  "websiteURL": "https://www.nps.gov/olym/index.htm",
+  "visitorCenterHours": "Port Angeles Visitor Center: Open year-round. 9 am - 5 pm in Summer; 9 am - 4 pm the rest of the year.",
+  "streetAddress": "600 E. Park Avenue",
+  "city": "Port Angeles",
+  "zipcode": "98362",
+  "phone": "360-565-3130",
+  "googleMaps": "https://maps.app.goo.gl/pdG356uvkDfNADdS7"
+  },
   {
   "parkName": "San Juan Island National Historical Park",
   "state": "WA",
