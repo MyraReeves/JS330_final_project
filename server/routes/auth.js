@@ -177,3 +177,21 @@ router.delete("/:id", isAuthorized, isAdmin, async (req, res) => {
 
 
 module.exports = router;
+
+
+
+/*
+Note from the internet concerning whether to have a logout route:
+
+"In simple apps, logging out is often handled 100% on the frontend with something like:  localStorage.removeItem("token");
+
+You only need a logout route if:
+
+-- You’re managing a token blocklist on the server.
+-- You want to track/log logout events.
+-- You store tokens in HTTP-only cookies and want the server to clear them.
+-- You want to perform some kind of cleanup or trigger a "user just logged out" signal.
+
+For your app, none of those seem necessary."
+
+*/
