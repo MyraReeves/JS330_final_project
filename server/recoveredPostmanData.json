@@ -1,0 +1,26 @@
+[{
+    "parkName": "Ebey's Landing National Historical Reserve",
+    "state": "WA",
+    "parkType": "NHR",
+    "description": "This park consists of the historic (1850s) Ebey family farm on Whidbey Island with trails thru meadows and woods overlooking views of the Salish Sea and Puget Sound.",
+    "websiteURL": "https://www.nps.gov/ebla/",
+    "visitorCenterHours": "Visitor Center Hours: 9am - 4pm, Monday-Friday",
+    "streetAddress": "PO Box 774",
+    "city": "Coupeville",
+    "zipcode": "98239",
+    "phone": "360-678-6084",
+    "googleMaps": "https://maps.app.goo.gl/n52EHDiry3Uc5qCs8"
+},
+{
+  "parkName": "Mount Rainier National Park",
+  "state": "WA",
+  "parkType": "NP",
+  "description": "An active volcano, Mount Rainier is the most glaciated peak in the contiguous U.S., spawning 5 major rivers. Subalpine wildflower meadows ring the icy volcano while ancient forest cloaks Mount Rainier’s lower slopes. The peak is 14,410 feet above sea level. ⛰️ TIMED ENTRY, RESERVATIONS MAY BE REQUIRED from May thru September, 7am-5pm. CHECK OFFICIAL NPS WEBSITE FOR THE LATEST UPDATE (For example, timed entry is paused for the Paradise Corridor in 2025 but STILL ACTIVE for the Sunrise Corridor in 2025). Each corridor requires a separate vehicle reservation. Timed entry reservations are good for a single day, per vehicle, and are required in addition to an entrance fee or park pass.",
+  "websiteURL": "https://www.nps.gov/mora/index.htm",
+  "visitorCenterHours": "June - Sept, 9am-4:30pm daily @ Longmire Museum at Longmire Wilderness Information Center 🌲🌲 June - Sept, 9:30am-5:30pm daily @ Henry M Jackson Memorial Visitor Center 🌲🌲 June - Sept, 9am-5pm daily @ Ohanapecosh Visitor Center 🌲🌲 July - Sept, 9am-5pm daily @ Sunrise Visitor Center",
+  "streetAddress": "55210 238th Avenue East",
+  "city": "Ashford",
+  "zipcode": "98304",
+  "phone": "360-569-6575",
+  "googleMaps": "https://www.google.com/maps/place/Henry+M.+Jackson+Memorial+Visitor+Center/@46.7858833,-121.7367888,573m/data=!3m2!1e3!4b1!4m6!3m5!1s0x5490d36ca0f016ad:0x1da35e56b2c70bb3!8m2!3d46.7858833!4d-121.7367888!16s%2Fm%2F0464t9z"
+}]
