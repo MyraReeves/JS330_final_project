@@ -150,6 +150,7 @@ router.put("/password", isAuthorized, async (req, res) => {
 
     // Send an interal server error 500 if the password change failed for some other reason:
     catch (error) {
+        console.error("The following error occurred when attempting to change the password:", error);
         res.sendStatus(500);
     }
 });
