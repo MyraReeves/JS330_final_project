@@ -1,4 +1,18 @@
-[{
+[
+  {
+    "parkName": "Bainbridge Island Japanese American Exclusion Memorial National Historic Site",
+    "state": "WA",
+    "parkType": "NHS",
+    "description": "A memorial to the unconstitutional, forced removal and incarceration of 272 Japanese Americans from Bainbridge Island on March 30, 1942 as a result of Executive Order 9066. The memorial was built on the exact path to the Eagledale dock where residents were forced to depart to be sent to concentration camps. 🕊️ ''A large Western Red Cedar that stood near the Eagledale ferry dock as Bainbridge Islanders were forced to leave their homes in 1942 — and that still stands on the site of the Memorial — was added to the National Registry of Historic Trees in 2003 by the American Forests organization. Only the second West Coast tree to earn this distinction, it is considered a living witness to an event that helped shape our nation.'' (quoted from BIJAEMA website) 🕊️ The NPS description of this historic site can be found at: https://www.nps.gov/miin/learn/historyculture/bainbridge-island-japanese-american-exclusion-memorial.htm 🕊️ Although a small government trailer exists on grounds, mail can not be delivered to it. General information inquiries should therefore be addressed to the non-profit organization BIJAEMA instead of the national park service",
+    "websiteURL": "https://bijaema.org/",
+    "visitorCenterHours": "Hours: 9am – 5pm, 7 days a week, March 1st -- December 1st",
+    "streetAddress": "221 Winslow Way West, Suite 206",
+    "city": "Bainbridge Island",
+    "zipcode": "98110",
+    "phone": "360-386-2114",
+    "googleMaps": "https://maps.app.goo.gl/TW1HpoQJ9CLwsdMo6"
+  },
+  {
     "parkName": "Ebey's Landing National Historical Reserve",
     "state": "WA",
     "parkType": "NHR",
