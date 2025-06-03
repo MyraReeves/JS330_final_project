@@ -27,7 +27,7 @@
 },
 
 
-{
+  {
     "parkName": "Mount Rainier National Park",
     "state": "WA",
     "parkType": "NP",
@@ -39,5 +39,18 @@
     "zipcode": "98304",
     "phone": "360-569-6575",
     "googleMaps": "https://maps.app.goo.gl/wqQFRHwadREsi9Zs5"
-}
+  },
+  {
+  "parkName": "Whitman Mission National Historic Site",
+  "state": "WA",
+  "parkType": "NHS",
+  "description": "This site commemorates an important Presbyterian missionary stop on the Oregon Trail.  A deadly measles outbreak in 1847 led Native Americans to murder 13 of the white settlers, take another 47 of them hostage, and sparked the 8 year long Cayuse War with the U.S.",
+  "websiteURL": "https://www.nps.gov/whmi/index.htm",
+  "visitorCenterHours": "Visitor Center Hours: Tuesday-Saturday from 9am–4pm",
+  "streetAddress": "328 Whitman Mission Road",
+  "city": "Walla Walla",
+  "zipcode": "99362",
+  "phone": "509-522-6360",
+  "googleMaps": "https://maps.app.goo.gl/pRKrXLiZuYdUoCDWA"
+  }
 ]
