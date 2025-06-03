@@ -41,6 +41,20 @@
     "googleMaps": "https://maps.app.goo.gl/wqQFRHwadREsi9Zs5"
   },
 
+  
+  {
+  "parkName": "North Cascades National Park",
+  "state": "WA",
+  "parkType": "NP",
+  "description": "Explore an alpine landscape that contains over 300 glaciers and one of the largest ranges of biodiversity of any national park in the U.S.! Most of the park is designated as wilderness, and exploring its remote, mountainous content can be dangerous for inexperienced hikers and rock climbers.  There are no entrance fees, but there also is almost no road access and permits are required year round for overnight stays in almost all of the park.",
+  "websiteURL": "https://www.nps.gov/noca/index.htm",
+  "visitorCenterHours": "Visitor Center Hours: 9am-5pm every day during Summer.",
+  "streetAddress": "810 State Route 20",
+  "city": "Sedro-Woolley",
+  "zipcode": "98284",
+  "phone": "360-854-7200",
+  "googleMaps": "https://maps.app.goo.gl/bUZUiRp2SUB2c78c7"
+  },
   {
   "parkName": "Olympic National Park",
   "state": "WA",
