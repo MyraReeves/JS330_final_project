@@ -40,7 +40,7 @@ function Header() {
 
     {/* The following block checks whether a user is logged in or not, and then displays the appropriate in/out link depending on the results: */}
       <div className='account-doorway-link'>
-        {isLoggedIn ? ( <button onClick={handleLogout}>Logout</button> ) : ( <Link to="/login">Login</Link>) }
+        {isLoggedIn ? ( <button onClick={handleLogout}>Logout</button> ) : ( <Link to="/login">🚵Login</Link>) }
       </div>
     </header>
   )
