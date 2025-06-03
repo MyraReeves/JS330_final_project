@@ -28,6 +28,19 @@
 
   
   {
+  "parkName": "Lake Roosevelt National Recreation Area",
+  "state": "WA",
+  "parkType": "NRA",
+  "description": "This is the largest reservoir (133 miles) in the Pacific Northwest! It is located on the upper Columbia River in NE Washington. The park contains several campgrounds and day-use areas. At the SE end of the lake is Fort Spokane Visitor Center & Museum inside the former guardhouse of historic Fort Spokane. Exhibits include: Ice Age Floods, Military History, and 19th Century Native American Boarding Schools.󠀠󠀠 🌲 At the SW end of the lake is Grand Coulee Dam (operated by the Bureau of Reclamation). The dam was built in the late 1970s. The dam's visitor center features educational exhibits, guided tours, and a nightly laser light show. It also is part of the Ice Age Floods National Geologic Trail. The Bureau of Reclamation visitor center is open year-round: Daily, 8:30am–5pm. Dam website: https://www.usbr.gov/pn/grandcoulee/visit/",
+  "websiteURL": "https://www.nps.gov/laro/",
+  "visitorCenterHours": "Fort Spokane Hours: 9:30am-5pm, Thursday-Monday, Seasonal: Memorial Day to Labor Day",
+  "streetAddress": "1008 Crest Drive",
+  "city": "Coulee Dam",
+  "zipcode": "991164",
+  "phone": "509-754-7800",
+  "googleMaps": "https://maps.app.goo.gl/83JF6YTWw6nXQGgW8"
+  },
+  {
   "parkName": "Lewis & Clark National Historical Park",
   "state": "WA",
   "parkType": "NHP",
