@@ -20,7 +20,7 @@ const isAuthorized = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decoded;
-        console.log("👍 The JWT token was verified as valid. The user payload is:", decoded);  // For troubleshooting purposes
+        // console.log("👍 The JWT token was verified as valid. The user payload is:", decoded);      // For troubleshooting
         next();
     }
 
