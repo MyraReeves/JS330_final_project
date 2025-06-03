@@ -28,6 +28,19 @@
 
   
   {
+  "parkName": "Lewis & Clark National Historical Park",
+  "state": "WA",
+  "parkType": "NHP",
+  "description": "Within Washington, Clark's Tree, Cape Disappointment, Fort Columbia, Middle Village, and Dismal Nitch are all parts of the Lewis & Clark National Historical Park. They are also part of the Lewis & Clark National Historic Trail, which spans 16 states. 🌲 Quote: ''Standing high on the cliffs at Cape Disappointment State Park, Lewis & Clark Interpretive Center tells the story of the Lewis and Clark Expedition and Chinook tribe, as well as local maritime and military history.'' 🌲 Quote: ''Fort Columbia is situated atop Chinook Point and was built between 1896 and 1903. After being de-commissioned in 1947, this former military installation became a 618-acre Washington State Historical Park. Lewis and Clark passed through this area on January 9th, 1806.''  🌲 Fort Columbia website: www.nps.gov/places/fort-columbia-historical-state-park.htm",
+  "websiteURL": "https://parks.wa.gov/find-parks/state-parks/cape-disappointment-state-park/lewis-clark-interpretive-center",
+  "visitorCenterHours": "Washington's Lewis & Clark Interpretive Center Hours: 10am-5pm daily from Apr. 1 – Oct. 31 🌲 10am-5pm Wed-Sun from Nov. 1 – Mar. 31",
+  "streetAddress": "244 Robert Gray Drive",
+  "city": "Ilwaco",
+  "zipcode": "98624",
+  "phone": "360-642-3029",
+  "googleMaps": "https://maps.app.goo.gl/MAWxg5AVT5HicDEk8"
+  },
+  {
   "parkName": "Manhattan Project National Historical Park",
   "state": "WA",
   "parkType": "NHP",
