@@ -28,6 +28,19 @@
 
   
   {
+  "parkName": "Fort Vancouver National Historic Site",
+  "state": "WA",
+  "parkType": "NHS",
+  "description": "Fort Vancouver was a historic frontier fur trading post on the northern bank of the Columbia River. The park includes a reconstructed 1825 fort, civil war era Army officers buildings, and a WW1 era air museum.",
+  "websiteURL": "https://www.nps.gov/fova/",
+  "visitorCenterHours": "Visitor Center Hours: 9am – 4pm, Tuesday-Saturday",
+  "streetAddress": "800 Hatheway Road, Bldg. 722",
+  "city": "Vancouver",
+  "zipcode": "98661",
+  "phone": "360-816-6230",
+  "googleMaps": "https://maps.app.goo.gl/fjxrdZcyA4QqN5xS6"
+  },
+  {
   "parkName": "Klondike Gold Rush National Historical Park",
   "state": "WA",
   "parkType": "NHP",
