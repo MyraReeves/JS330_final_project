@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const { MongoMemoryServer } = require("mongodb-memory-server");
+
 const models = [
   require("./models/commentModel"),
   require("./models/parkModel"),
@@ -6,15 +8,18 @@ const models = [
   require("./models/visitedModel"),
 ];
 
-module.exports = {};
+let mongod;
 
 module.exports.connectDB = async () => {
-  await mongoose.connect(process.env.MONGO_URL, {});
+  mongod = await MongoMemoryServer.create();
+  const uri = mongod.getUri();
+  await mongoose.connect(uri);
   await Promise.all(models.map((m) => m.syncIndexes()));
 };
 
 module.exports.stopDB = async () => {
   await mongoose.disconnect();
+  if (mongod) await mongod.stop();
 };
 
 module.exports.clearDB = async () => {
@@ -23,16 +28,12 @@ module.exports.clearDB = async () => {
 
 module.exports.findOne = async (model, query) => {
   const result = await model.findOne(query).lean();
-  if (result) {
-    result._id = result._id.toString();
-  }
+  if (result) result._id = result._id.toString();
   return result;
 };
 
 module.exports.find = async (model, query) => {
   const results = await model.find(query).lean();
-  results.forEach((result) => {
-    result._id = result._id.toString();
-  });
+  results.forEach((result) => (result._id = result._id.toString()));
   return results;
 };
