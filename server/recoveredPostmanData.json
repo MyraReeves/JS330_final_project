@@ -28,6 +28,19 @@
 
   
   {
+  "parkName": "Klondike Gold Rush National Historical Park",
+  "state": "WA",
+  "parkType": "NHP",
+  "description": "Learn the story of the 1890s Klondike Gold Rush and its role in Seattle's history! The visitor center is located inside the historic Cadillac Hotel at the intersection of Second Avenue and Jackson Street in downtown Seattle. This is the sister park to the Klondike Gold Rush NHP in Skagway, Alaska.",
+  "websiteURL": "https://www.nps.gov/klse/",
+  "visitorCenterHours": "Visitor Center Hours: 10am - 5pm, Wednesday - Sunday",
+  "streetAddress": "319 Second Ave S.",
+  "city": "Seattle",
+  "zipcode": "98104",
+  "phone": "206-220-4240",
+  "googleMaps": "https://maps.app.goo.gl/DpUNzW81aazD1jt7A"
+  },
+  {
   "parkName": "Lake Roosevelt National Recreation Area",
   "state": "WA",
   "parkType": "NRA",
