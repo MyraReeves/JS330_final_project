@@ -10,7 +10,7 @@ const isAdmin = require("../middleware/isAdmin");
 ////////////////////////////////////
 router.post("/", isAuthorized, isAdmin, async (req, res) => {
     // Console log for debugging purposes:
-    console.log("🕵️ The authenticated user info is as follows:", req.user);
+    // console.log("🕵️ The authenticated user info is as follows:", req.user);
 
     try {
         const park = await parkDao.createPark(req.body);
