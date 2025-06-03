@@ -24,9 +24,22 @@
     "zipcode": "98239",
     "phone": "360-678-6084",
     "googleMaps": "https://maps.app.goo.gl/n52EHDiry3Uc5qCs8"
-},
+  },
 
-
+  
+  {
+  "parkName": "Manhattan Project National Historical Park",
+  "state": "WA",
+  "parkType": "NHP",
+  "description": "Tours of the Hanford B Reactor (managed by the US Department of Energy) and other historic facilities are available. The nuclear reactors at Hanford produced plutonium for the Manhattan Project to fuel the first atomic bomb test. The Fat Man atomic bomb dropped on Nagasaki, Japan on August 9, 1945. ☢️ General inquiries should be addressed to: Manhattan Project National Historical Park c/o NPS Intermountain Regional Office ☢️ In addition to the Hanford Visitor Center (see hours below and Google Maps link below), there is also the Tri-Cities Visitor Center located at 7130 W. Grandridge Blvd, Suite B in Kennewick, WA 99336, which is open Monday thru Friday from 8AM – 5PM. ☢️ Also, the REACH Museum in Richland has information about the Ice Age Floods National Geologic Trail in addition to information on the Manhattan Project. The REACH Museum hours are 10am-4:30, Tues-Sat.",
+  "websiteURL": "https://www.nps.gov/mapr/planyourvisit/hanford-wa.htm",
+  "visitorCenterHours": "Hanford Visitor Center Hours: 8AM–4:30PM, Monday thru Saturday",
+  "streetAddress": "P.O. Box 25287",
+  "city": "Denver, CO",
+  "zipcode": "80225",
+  "phone": "509-376-1647",
+  "googleMaps": "https://maps.app.goo.gl/t9ut5A6UCXmxCca7A"
+  },
   {
     "parkName": "Mount Rainier National Park",
     "state": "WA",
@@ -40,8 +53,6 @@
     "phone": "360-569-6575",
     "googleMaps": "https://maps.app.goo.gl/wqQFRHwadREsi9Zs5"
   },
-
-  
   {
   "parkName": "Nez Perce - Buffalo Eddy National Historical Park",
   "state": "WA",
