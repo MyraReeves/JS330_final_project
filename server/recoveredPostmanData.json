@@ -43,6 +43,19 @@
 
   
   {
+  "parkName": "Nez Perce - Buffalo Eddy National Historical Park",
+  "state": "WA",
+  "parkType": "NHP",
+  "description": "Quote: ''Since time immemorial, the valleys, prairies, mountains, and plateaus of the inland northwest have been home to the nimíipuu (Nez Perce) people. Extremely resilient, they survived the settling of the United States and adapted to a changed world. Nez Perce National Historical Park consists of 38 places important to the history and culture of the nimíipuu.'' 🪨 Quote: ''The Nez Perce left behind vivid evidence of their association with this land. On either side of an eddy formed by a series of sharp bends in the Snake River, are densely grouped clusters of petroglyphs and pictographs. Known as Buffalo Eddy, the unique petroglyphs contain hundreds of distinct images that possibly date from as early as 4,500 years ago.''",
+  "websiteURL": "https://www.nps.gov/nepe/learn/historyculture/buffalo-eddy-history.htm",
+  "visitorCenterHours": "There is no visitor center in Washington for this site. Only interpretive signs exist. The nearest Nez Perce visitor center is 34 miles away in Idaho.",
+  "streetAddress": "39063 US Hwy 95",
+  "city": "Lapwai, ID",
+  "zipcode": "83540",
+  "phone": "208-843-7001",
+  "googleMaps": "https://maps.app.goo.gl/SwqveSCAsydSXto79"
+  },
+  {
   "parkName": "North Cascades National Park",
   "state": "WA",
   "parkType": "NP",
