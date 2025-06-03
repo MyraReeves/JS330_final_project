@@ -129,12 +129,10 @@ describe("/auth", () => {
 
 
   describe.each([user0, user1])("User %#", (user) => {
-    beforeEach(async () => {
-      const hashed0 = await bcrypt.hash(user0.password, 10);
-      const hashed1 = await bcrypt.hash(user1.password, 10);
-      await User.create({ username: user0.username, email: user0.email, password: hashed0, roles: ["user"]});
-      await User.create({ username: user1.username, email: user1.email, password: hashed1, roles: ["user"]});
-    });
+  beforeEach(async () => {
+    await User.create({ username: user0.username, email: user0.email, password: user0.password, roles: ["user"] });
+    await User.create({ username: user1.username, email: user1.email, password: user1.password, roles: ["user"] });
+  });
 
     describe("POST /", () => {
       it("should return 400 (Bad Request) if a password isn't provided during logging in", async () => {
@@ -153,7 +151,7 @@ describe("/auth", () => {
       });
 
       it("should return 200 OK and a token when password matches", async () => {
-        const res = await request(server).post("/api/auth/login").send(user);
+        const res = await request(server).post("/api/auth/login").send({ email: user.email,password: user.password, });
         expect(res.statusCode).toEqual(200);
         expect(typeof res.body.token).toEqual("string");
       });
