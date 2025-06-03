@@ -131,7 +131,7 @@ router.put("/password", isAuthorized, async (req, res) => {
 
     try {
         // Find the user by their id:
-        const user = await User.findById(req.user._id);
+        const user = await User.findById(req.user._id).select("+password");         // Overrides the default password exclusion rule
 
         // Return an error if the user is not found:
         if (!user) return res.sendStatus(404);
