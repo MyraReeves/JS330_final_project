@@ -130,8 +130,8 @@ describe("/auth", () => {
 
   describe.each([user0, user1])("User %#", (user) => {
   beforeEach(async () => {
-    await User.create({ username: user0.username, email: user0.email, password: user0.password, roles: ["user"] });
-    await User.create({ username: user1.username, email: user1.email, password: user1.password, roles: ["user"] });
+    await new User({ username: user0.username, email: user0.email, password: user0.password, roles: ["user"] }).save();
+    await new User({ username: user1.username, email: user1.email, password: user1.password, roles: ["user"] }).save();
   });
 
     describe("POST /", () => {
@@ -255,23 +255,10 @@ describe("/auth", () => {
 
     beforeEach(async () => {
       // Create an admin user:
-      const adminHashed = await bcrypt.hash("adminpass", 10);
-      const adminUser = await User.create({
-        username: "Admin",
-        email: "admin@email.com",
-        password: adminHashed,
-        roles: ["admin"],
-      });
+      await new User({  username: "Admin", email: "admin@email.com", password: "adminpass", roles: ["admin"], }).save();
 
       // Create a user to be deleted:
-      const userHashed = await bcrypt.hash("userpass", 10);
-      const targetUser = await User.create({
-        username: "DeleteMe",
-        email: "usertodelete@email.com",
-        password: userHashed,
-        roles: ["user"],
-      });
-
+      const targetUser = await new User({  username: "DeleteMe", email: "usertodelete@email.com", password: "userpass", roles: ["user"],  }).save();
       targetUserId = targetUser._id;
 
       // Login both the admin and the user to be deleted:
