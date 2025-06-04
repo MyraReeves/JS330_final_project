@@ -2,15 +2,35 @@
 
 My final project for UW's "Back-End Application Development With JavaScript" course
 
-## 🔶 Final Submission / Self-evaluation (due June 3rd) 🔶
+## 🔶 Final Submission Summary / Self-evaluation (due June 3rd) 🔶
 
-### **Challenges:**
+### **Challenges Encountered:**
 
 The largest and most unfortunate surprise challenge happened on the final day of this project (today, June 3rd), only 2 hours before our project presentations to class!  My entire computer suddenly crashed, erased all of the database content I had previously seeded, erased the installation of a couple critical dependencies, and caused lasting software issues with Postman (repeated blank screen freezing during use and needing to "End Task" via Task Manager).  Even as I write this, I still can not see my main desktop GUI and have been relying on the icon bar at the bottom of the screen to navigate everything.  Thankfully, with the help of the internet & ChatGPT troubleshooting, I was able to use Admin priviledges in Command Prompt to resurrect the use of MongoDB, restore the erased lines of code from files such as importing dotenv, and [start to recover the json copies of data](./server/recoveredPostmanData.json) using Postman's cached History tab.  Also thankfully, I was able to use [a previously created seedAdmin.js file](./Screenshot2025-06-03-1.jpg) to quickly and easily re-create a new account with admin capabilities within the database.
 
 The second most significant project challenge
 
 ### **Unfinished To-do's:**
+
+The most important unfinished tasks with this project are the creation of several front-end interface pages/components in React and connecting that front-end to the back-end.  As of this project submission, I was only able to create the: 
+
+* header -- the login/logout link is not yet functional, but I started writing code to link it to the back=end,
+* homepage -- I did not yet finish the CSS styling of it and it also has an unfinished link to a user signup page that doesn't exist yet,
+* basic dropdown menu page for selecting Washington parks -- no functionality yet when a park is selected, and
+* a basic dropdown menu page for selecting Oregon parks -- no functionality yet when a park is selected.
+
+I have not yet started creation of:
+
+* a basic user account "Sign-up" Registration page
+
+* displaying park information from the backend based on the choice the user makes within the dropdown menu. Here is the basic concept starting idea that I will be working off of: [link to screenshot.](./Screenshot2025-06-03-parkInfo.jpg)  Within that, functionality will also need to be written for the button links will be park-specific.  Of special note:
+  * A _"leave comments"_ button will only appear for registered users who are logged in but there will be another button (not pictured) for both logged-in and logged-out users to be able to read comments that anyone previously left about that park.
+
+* a page only for logged-in users containing the comment form. Here is the basic concept starting idea that I will be building that front-end page off of: [link to screenshot.](./Screenshot2025-06-03-commentForm.jpg)
+
+* dynamically linked pages that display previously submitted park-specific comments left by registered users. Unlike in this example image, I intend on having it only show comments about whichever one park the user had selected within the state dropdown menu.  However, here is a basic styling concept starting idea that I will be building the display of visitor comments off of: [link to screenshot.](./Screenshot2025-06-03-visitorComments.jpg)  The "leave your own comment" button would obviously only appear for logged-in, registered users.
+
+<br>
 
 ## 🔶 Proof of Concept (due May 21st) 🔶
 <!-- Leave an update at the top of your README listing what work is completed and what work still needs to be done. -->
