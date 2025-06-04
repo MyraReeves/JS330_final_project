@@ -41,6 +41,8 @@ I have not yet started creation of:
 
 * dynamically linked pages that display previously submitted park-specific comments left by registered users. Unlike in the following example image, I intend on having it only show comments about whichever one park the user had selected within the state dropdown menu.  Here is a basic styling concept starting idea that I will be building that display of visitor comments off of: [link to screenshot.](./Screenshot2025-06-03-visitorComments.jpg)  The "add your own comment" button would only appear for logged-in, registered users.
 
+* the needed frontend pages for logged-in registered users to be able to create, view, and manage their personal "parks visited" lists
+
 * a dynamically reactive map of each park, created using the Leaflet library.  I began working on this project goal during [my "Supplemental Topic Presentation" assignment](https://github.com/MyraReeves/Leaflet_Demo), wherein I began creating [this map](./Screenshot2025-06-03-leafletRainier.jpg) of Rainier National Park, but I did not have time to build similar custom maps of any of the other parks nor to even begin to integrate the necessary code into this project's front-end HTML.
 
 <br>
