@@ -4,6 +4,14 @@ My final project for UW's "Back-End Application Development With JavaScript" cou
 
 ## 🔶 Final Submission Summary / Self-evaluation (due June 3rd) 🔶
 
+This project was a wonderful opportunity to:
+
+* re-acquaint my coding brain with the process of writing a React front-end app,
+* further my experiental understanding and comfort with using Express/MongoDB/Postman to build a backend API,
+* improve on writing and using Jest unit tests,
+* become better at trouble-shooting development problems that occur in Express projects,
+* and begin to better acquaint myself with connecting the frontend to the backend within a single app.
+
 ### **Challenges Encountered:**
 
 The largest and most unfortunate surprise challenge happened on the final day of this project (today, June 3rd), only 2 hours before our project presentations to class!  My entire computer suddenly crashed, erased all of the database content I had previously seeded, erased the installation of a couple critical dependencies, and caused lasting software issues with Postman (repeated blank screen freezing during use and needing to "End Task" via Task Manager).  Even as I write this, I still can not see my main desktop GUI and have been relying on the icon bar at the bottom of the screen to navigate everything.  Thankfully, with the help of the internet & ChatGPT troubleshooting, I was able to use Admin priviledges in Command Prompt to resurrect the use of MongoDB, restore the erased lines of code from files such as importing dotenv, and [start to recover the json copies of data](./server/recoveredPostmanData.json) using Postman's cached History tab.  Also thankfully, I was able to use [a previously created seedAdmin.js file](./Screenshot2025-06-03-1.jpg) to quickly and easily re-create a new account with admin capabilities within the database.
@@ -52,6 +60,8 @@ Progress took longer than I had originally intended (See checklist at the bottom
 * Front-end HTML
 * CSS
 * Test and fix any problems
+
+<Br>
 
 ## 🔶 Project Proposal Description (due May 7th) 🔶
 
