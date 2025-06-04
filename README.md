@@ -2,7 +2,17 @@
 
 My final project for UW's "Back-End Application Development With JavaScript" course
 
-## 🔶 Proof of Concept 🔶
+## 🔶 Final Submission / Self-evaluation (due June 3rd) 🔶
+
+### **Challenges:**
+
+The largest and most unfortunate surprise challenge happened on the final day of this project (today, June 3rd), only 2 hours before our project presentations to class!  My entire computer suddenly crashed, erased all of the database content I had previously seeded, erased the installation of a couple critical dependencies, and caused lasting software issues with Postman (repeated blank screen freezing during use and needing to "End Task" via Task Manager).  Even as I write this, I still can not see my main desktop GUI and have been relying on the icon bar at the bottom of the screen to navigate everything.  Thankfully, with the help of the internet & ChatGPT troubleshooting, I was able to use Admin priviledges in Command Prompt to resurrect the use of MongoDB, restore the erased lines of code from files such as importing dotenv, and [start to recover the json copies of data](./server/recoveredPostmanData.json) using Postman's cached History tab.  Also thankfully, I was able to use [a previously created seedAdmin.js file](./Screenshot2025-06-03-1.jpg) to quickly and easily re-create a new account with admin capabilities within the database.
+
+The second most significant project challenge
+
+### **Unfinished To-do's:**
+
+## 🔶 Proof of Concept (due May 21st) 🔶
 <!-- Leave an update at the top of your README listing what work is completed and what work still needs to be done. -->
 Several of the files for the back-end have been completed. It has a mongoose connection, a running express server, and the necessary libraries installed.  Models exist for the user accounts, the master park list, the user comments, and the users' "visited parks" lists.  Routes exist for the master park list, user comments, auth (user account creation/editing), and the users' "visited parks" lists.
 
@@ -23,7 +33,7 @@ Progress took longer than I had originally intended (See checklist at the bottom
 * CSS
 * Test and fix any problems
 
-## 🔶 Project Proposal Description 🔶
+## 🔶 Project Proposal Description (due May 7th) 🔶
 
 My app will function as a national park information site for hobbyists in Washington and Oregon, with the intention of encouraging visitation to the real world locations.  For project deadline purposes I will be limiting the initial scope to only those two states, but the app could be expanded in the future to include NPS sites in other states as well.
 
@@ -47,7 +57,6 @@ The app will be a React Express app using MongoDB to store database contents.  C
 👥 **User Accounts**
 
 * CREATE/POST _a new user_ ("Sign Up")
-* CREATE/POST _to set a user's role_
 * POST _logging in an existing user_
 * READ/GET _a list of all users_
 * READ/GET _the information about a single user_
@@ -130,6 +139,6 @@ The app will be a React Express app using MongoDB to store database contents.  C
 
 🗹 **Week 3** <sup>(week 8 of class)</sup> _**DUE DATE: May 21st**_ = ~~Set up front end content (including CSS) and~~ continue coding Express route files. Submit prototype/proof of concept with an updated README.
 
-☐ &nbsp; **Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve anything that is broken, and finish any remaining coding.
+🗹 &nbsp; **Week 4** <sup>(week 9 of class)</sup> = Write tests, problem solve anything that is broken, and finish any remaining coding.
 
-☐ &nbsp; **Week 5** <sup>(week 10 of class)</sup> = Finish testing, complete any final tweaks, and push the final deployment. Create slides for the in-class presentation.
+🗹 &nbsp; **Week 5** <sup>(week 10 of class)</sup> = Finish testing, complete any final tweaks, and push the final deployment. Prepare the in-class presentation.
