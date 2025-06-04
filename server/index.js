@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const app = require("./app");
 
 // Load environment variables from .env
+const dotenv = require('dotenv');
 dotenv.config();
 
 // Connect to MongoDB and the server:
