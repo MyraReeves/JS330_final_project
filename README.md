@@ -35,7 +35,7 @@ I have not yet started creation of:
 * a basic user account "Sign-up" Registration page
 
 * displaying park information from the backend based on the choice the user makes within the dropdown menu. Here is the basic concept starting idea that I will be working off of: [link to screenshot.](./Screenshot2025-06-03-parkInfo.jpg)  Within that, functionality will also need to be written for the comment/Google Maps/state navigation button links, most of which will have park-specific results.  Of special note:
-  * A _"leave comments"_ button will only appear for registered users who are currently logged in, but there will be another button (not pictured) for anyone (whether logged-in or logged-out) users to be able to read comments that anyone previously left about that park.
+  * A _"leave comments"_ button will only appear for registered users who are currently logged in, but there will be another button (not pictured) for anyone (whether logged-in or logged-out) to be able to read comments that registered users previously left about that park.
 
 * a page only for logged-in users containing the comment form. Here is the basic concept starting idea that I will be building that front-end page off of: [link to screenshot.](./Screenshot2025-06-03-commentForm.jpg)
 
